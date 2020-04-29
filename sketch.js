@@ -48,13 +48,15 @@ function setup() {
   setTarget(0, 0, 0); // by default track white
 
   tracking.ColorTracker.registerColor('match', function (r, g, b) {
+    // console.log('called?');
     if (r <= rhi && r >= rlo &&
         g <= ghi && g >= glo &&
         b <= bhi && b >= blo) {
         return true;
+        console.log('true');
     }
     return false;
-    console.log("line 56");
+    console.log('false');
   });
   tracker = new tracking.ColorTracker(['match']);
   tracker.minDimension = 20; // make this smaller to track smaller objects
