@@ -15,6 +15,7 @@ function setTarget(r, g, b, range) {
     rhi = r + range, rlo = r - range;
     ghi = g + range, glo = g - range;
     bhi = b + range, blo = b - range;
+    console.log('set target');
 }
 
 function setup() {
