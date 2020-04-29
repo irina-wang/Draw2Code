@@ -4,6 +4,7 @@ var w = 640,
 
 var raster, param, pmat, resultMat, detector;
 var detected, gridWidth, gridHeight;
+var drawnX, drawnY, drawnWidth, drawnHeight;
 
 var tracker;
 
@@ -15,7 +16,7 @@ function setTarget(r, g, b, range) {
     rhi = r + range, rlo = r - range;
     ghi = g + range, glo = g - range;
     bhi = b + range, blo = b - range;
-    console.log('set target');
+    // console.log('set target');
 }
 
 function setup() {
@@ -45,7 +46,7 @@ function setup() {
   detector = new FLARMultiIdMarkerDetector(param, 2);
   detector.setContinueMode(true);
 
-  setTarget(0, 0, 0); // by default track white
+  setTarget(98, 79, 158); // by default track blue
 
   tracking.ColorTracker.registerColor('match', function (r, g, b) {
     if (r <= rhi && r >= rlo &&
@@ -68,6 +69,11 @@ function setup() {
     noFill();
     event.data.forEach(function (r) {
         rect(r.x, r.y, r.width, r.height);
+        console.log(r.x + ", " + r.y + ", " + r.width + ", " + r.height);
+        drawnX = r.x;
+        drawnY = r.y;
+        drawnWidth = r.width;
+        drawnHeight = r.height;
     })
   });
 }
@@ -155,12 +161,14 @@ function draw() {
   } 
   select('#gridWidth').elt.innerText = gridWidth;
   select('#gridHeight').elt.innerText = gridHeight;
+  select ('#drawnX').elt.innerText = drawnX;
+  select ('#drawnY').elt.innerText = drawnY;
+  select ('#drawnWidth').elt.innerText = drawnWidth;
+  select ('#drawnHeitgh').elt.innerText = drawnHeight;
 
-  if (mouseIsPressed &&
-    mouseX > 0 && mouseX < width &&
-    mouseY > 0 && mouseY < height) {
-      capture.loadPixels();
-      target = capture.get(mouseX, mouseY);
-      setTarget(target[0], target[1], target[2]);
-    }
+  if (mouseIsPressed && mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+    capture.loadPixels();
+    target = capture.get(mouseX, mouseY);
+    setTarget(target[0], target[1], target[2]);
+  }
 }
