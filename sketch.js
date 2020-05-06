@@ -1,10 +1,12 @@
 var capture;
-var w = 640,
+var w = 920,
     h = 480;
 
 var raster, param, pmat, resultMat, detector;
-var detected, gridWidth, gridHeight;
+var detected, gridX, gridY, gridWidth, gridHeight, gridDetected;
 var drawnX, drawnY, drawnWidth, drawnHeight;
+var imageX, imageY, imageWidth, imageHeight;
+var gridDetected;
 
 var tracker;
 
@@ -16,10 +18,10 @@ function setTarget(r, g, b, range) {
     rhi = r + range, rlo = r - range;
     ghi = g + range, glo = g - range;
     bhi = b + range, blo = b - range;
-    // console.log('set target');
 }
 
 function setup() {
+  // create canvas
   pixelDensity(1); // this makes the internal p5 canvas smaller
   capture = createCapture({
       audio: false,
@@ -38,6 +40,13 @@ function setup() {
   cnv.parent('container');
   // capture.hide(); // tracking.js can't track the video when it's hidden
 
+  img = loadImage('assets/duck.png'); // Load the image
+
+  button = createButton('Show Outcome');
+  button.position(600, 65);
+  button.mousePressed(showImage);
+
+  // for markers
   raster = new NyARRgbRaster_Canvas2D(canvas);
   param = new FLARParam(canvas.width, canvas.height);
   pmat = mat4.identity();
@@ -46,7 +55,8 @@ function setup() {
   detector = new FLARMultiIdMarkerDetector(param, 2);
   detector.setContinueMode(true);
 
-  setTarget(98, 79, 158); // by default track blue
+  // for the drawn
+  setTarget(47,30,134); // by default track blue
 
   tracking.ColorTracker.registerColor('match', function (r, g, b) {
     if (r <= rhi && r >= rlo &&
@@ -62,28 +72,16 @@ function setup() {
   tracking.track('#p5video', tracker, {
     camera: true
   });
-  tracker.on('track', function (event) {
-    cnv.clear();
-    strokeWeight(4);
-    stroke(255, 0, 0);
-    noFill();
-    event.data.forEach(function (r) {
-        rect(r.x, r.y, r.width, r.height);
-        console.log(r.x + ", " + r.y + ", " + r.width + ", " + r.height);
-        drawnX = r.x;
-        drawnY = r.y;
-        drawnWidth = r.width;
-        drawnHeight = r.height;
-    })
-  });
 }
 
 function draw() {
+  
+  // read markers
   image(capture, 0, 0, w, h);
   canvas.changed = true;
   var thresholdAmount = 128; //select('#thresholdAmount').value() * 255 / 100;
   detected = detector.detectMarkerLite(raster, thresholdAmount);
-  select('#markersDetected').elt.innerText = detected;
+  // select('#markersDetected').elt.innerText = detected;
 
   var markers = [];
   for (var i = 0; i < detected; i++) {
@@ -117,7 +115,6 @@ function draw() {
     // convert that set of vertices from object space to screen space
     var w2 = width / 2,
         h2 = height / 2;
-    // console.log("w2: " + w2 + ", h2: " + h2);
 
     verts.forEach(function (v) {
         mat4.multiplyVec4(cm, v);
@@ -147,28 +144,90 @@ function draw() {
     var Dx = markers[0][0][0];
     var Dy = markers[1][2][1];
 
+    gridX = Ax;
+    gridY = Ay;
     gridWidth = Bx - Ax;
     gridHeight = Cy - Ay;
-
-    noStroke();
-    fill(0, millis() % 255);
+    
+    strokeWeight(4);
+    stroke(255, 255, 0);
+    noFill();
     beginShape();
       vertex(Ax, Ay);
       vertex(Bx, By);
       vertex(Cx, Cy);
       vertex(Dx, Dy);            
     endShape();
-  } 
-  select('#gridWidth').elt.innerText = gridWidth;
-  select('#gridHeight').elt.innerText = gridHeight;
-  select ('#drawnX').elt.innerText = drawnX;
-  select ('#drawnY').elt.innerText = drawnY;
-  select ('#drawnWidth').elt.innerText = drawnWidth;
-  select ('#drawnHeitgh').elt.innerText = drawnHeight;
 
-  if (mouseIsPressed && mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+    gridDetected == "Yes";
+  } 
+
+  // draw the drawn
+  tracker.on('track', function (event) {
+    cnv.clear();
+    event.data.forEach(function (r) {
+        // rect(r.x, r.y, r.width, r.height);
+        drawnX = r.x;
+        drawnY = r.y;
+        drawnWidth = r.width;
+        drawnHeight = r.height;
+
+        // get the size and position to draw an image
+        imageX = ((drawnX-gridX)/gridWidth) * capture.width;
+        imageY = ((drawnY-gridY)/gridHeight) * capture.height;
+        imageWidth = drawnWidth/gridWidth * capture.width;
+        imageHeight = drawnHeight/gridHeight * capture.height;
+    })
+  });
+
+  // change the color to track
+  if (mouseIsPressed &&
+    mouseX > 0 && mouseX < width &&
+    mouseY > 0 && mouseY < height) {
     capture.loadPixels();
     target = capture.get(mouseX, mouseY);
     setTarget(target[0], target[1], target[2]);
+    console.log(target[0] + ", " + target[1] + ", " + target[2]);
   }
+
+  // get position and size of the drawn
+  // select('#gridWidth').elt.innerText = gridWidth;
+  // select('#gridHeight').elt.innerText = gridHeight;
+  // select('#drawnDetected').elt.innerText = drawnDetected;
+  // select ('#drawnX').elt.innerText = drawnX;
+  // select ('#drawnY').elt.innerText = drawnY;
+  // select ('#drawnWidth').elt.innerText = drawnWidth;
+  // select ('#drawnHeight').elt.innerText = drawnHeight;  
+  select ('#imageX').elt.innerText = imageX;  
+  select ('#imageY').elt.innerText = imageY; 
+  select ('#imageWidth').elt.innerText = imageWidth;  
+  select ('#imageHeight').elt.innerText = imageHeight;  
+  // select ('#gridDetected').elt.innerText = gridDetected; 
+  strokeWeight(4);
+  stroke(255, 0, 0); // red
+  noFill();
+  rect(drawnX, drawnY, drawnWidth, drawnHeight);
+
+  // show image on the video 
+  noStroke();
+  fill(255,200,200); // pink
+  if (detected == 2) {
+    rect(imageX, imageY, imageWidth, imageWidth);
+    image(img, imageX, imageY, imageWidth, imageWidth);
+  } 
+
 }
+
+function showImage() {
+  console.log("button clicked");
+  noStroke();
+  fill(255,200,200); // pink
+  rect(126, 131, 151, 177);
+  // rect(imageX, imageY, imageWidth, imageHeight);
+  
+  // console.log("gridX: " + gridX + "gridy: " + gridY + "gridWidth: " + gridWidth + "gridHeight: " + gridHeight);
+  // console.log("drawnX: " + drawnX + "drawnY: " + drawnY + "drawnWidth: " + drawnWidth + "drawnHeight: " + drawnHeight);
+  // console.log("ImageX: " + ImageX + ", ImageY: " + ImageY + ", ImageWidth: " + ImageWidth + "ImageHeight: ", + ImageHeight); 
+}
+
+
