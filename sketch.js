@@ -81,7 +81,7 @@ function draw() {
   canvas.changed = true;
   var thresholdAmount = 128; //select('#thresholdAmount').value() * 255 / 100;
   detected = detector.detectMarkerLite(raster, thresholdAmount);
-  // select('#markersDetected').elt.innerText = detected;
+  select('#markersDetected').elt.innerText = detected;
 
   var markers = [];
   for (var i = 0; i < detected; i++) {
