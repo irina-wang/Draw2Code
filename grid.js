@@ -50,7 +50,7 @@ function drawGrid() {
     canvas.changed = true;
     var thresholdAmount = 128; //select('#thresholdAmount').value() * 255 / 100;
     detected = detector.detectMarkerLite(raster, thresholdAmount);
-    select('#markersDetected').elt.innerText = detected;
+    // select('#markersDetected').elt.innerText = detected;
   
     var markers = [];
     for (var i = 0; i < detected; i++) {
@@ -155,14 +155,14 @@ function drawGrid() {
     rect(drawnX, drawnY, drawnWidth, drawnHeight);
 
     // change the color to track
-    if (mouseIsPressed &&
-        mouseX > 0 && mouseX < width &&
-        mouseY > 0 && mouseY < height) {
-        capture.loadPixels();
-        target = capture.get(mouseX, mouseY);
-        setTarget(target[0], target[1], target[2]);
-        // console.log(target[0] + ", " + target[1] + ", " + target[2]);
-    }
+    // if (mouseIsPressed &&
+    //     mouseX > 0 && mouseX < width &&
+    //     mouseY > 0 && mouseY < height) {
+    //     capture.loadPixels();
+    //     target = capture.get(mouseX, mouseY);
+    //     setTarget(target[0], target[1], target[2]);
+    //     // console.log(target[0] + ", " + target[1] + ", " + target[2]);
+    // }
 }
 
 function updateGridData() {
@@ -174,9 +174,9 @@ function updateGridData() {
     // select ('#drawnY').elt.innerText = drawnY;
     // select ('#drawnWidth').elt.innerText = drawnWidth;
     // select ('#drawnHeight').elt.innerText = drawnHeight;  
-    select ('#imageX').elt.innerText = imageX;  
-    select ('#imageY').elt.innerText = imageY; 
-    select ('#imageWidth').elt.innerText = imageWidth;  
-    select ('#imageHeight').elt.innerText = imageHeight;  
+    // select ('#imageX').elt.innerText = imageX;  
+    // select ('#imageY').elt.innerText = imageY; 
+    // select ('#imageWidth').elt.innerText = imageWidth;  
+    // select ('#imageHeight').elt.innerText = imageHeight;  
     // select ('#gridDetected').elt.innerText = gridDetected; 
 }
