@@ -11,6 +11,7 @@ let label = "waiting...";
 // for displaying the code scanned
 let code = [];
 let txt = "";
+let behavior = [];
 
 function setup(){
     // create canvas
