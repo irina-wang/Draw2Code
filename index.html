@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>p5.js example</title>
+  <title>demo</title>
   <style>
     body {
       padding: 0;
@@ -13,24 +13,47 @@
   </style>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+      <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
       <script src="//kig.github.io/JSARToolKit/demos/magi.js"></script>
       <script src="//kig.github.io/JSARToolKit/JSARToolKit.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tracking.js/1.1.3/tracking-min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Work+Sans|Poppins" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-  <h2>Grid Card Detection: Marker Tracking (JSARToolKit) + Contour Detection (trackingjs)</h2>
+  <!-- <h2>Grid Card Detection: Marker Tracking (JSARToolKit) + Contour Detection (trackingjs)</h2> -->
 <!--    <p>Threshold: <input type="range" id="thresholdAmount" value="50"></p>-->
-  <p>Markers detected: <span id="markersDetected"></span></p>
-  <p>Grid width: <span id="gridWidth"></span></p>
-  <p>Grid height: <span id="gridHeight"></span></p>
-  <p>Drawn Box width: <span id="drawnWidth"></span></p>
-  <p>Drawn Box height: <span id="drawnHeight"></span></p>
+<!-- <p>Grid detected: <span id="gridDetected"></span></p>   -->
+<!-- <p>Markers detected: <span id="markersDetected"></span></p> -->
+<!-- <p>The drawn detected: <span id="drawnDetected"></span></p>
+<p>Grid position: (<span id="gridX"></span>, <span id="gridY"></span>)</p>
+<p>Grid width: <span id="gridWidth"></span></p>
+<p>Grid height: <span id="gridHeight"></span></p>
+<p>Drawn position: (<span id="drawnX"></span>, <span id="drawnY"></span>)</p>
+<p>Drawn box width: <span id="drawnWidth"></span></p>
+<p>Drawn box height: <span id="drawnHeight"></span></p> -->
+<!-- <p>Image position: (<span id="imageX"></span>, <span id="imageY"></span>)</p> -->
+<!-- <p>Image size: width <span id="imageWidth"></span> height <span id="imageHeight"></span></p> -->
 
   <!-- if you'd like to specify a location for the canvas -->
-  <div id="myContainer"></div> 
-  <div id="p5_loading" class="loadingclass"></div>
-  <script src="sketch.js"></script>
+  <div id="container"></div> 
+  <div id="codeBar">
+    <p><span id="code"></span></p>
+    <button class="run-btn" id="run" onClick="runProgram()">Run</button>
+  </div>
+  <!-- <aside>
+    <p>Classifier: <span id="checkPointSlug">...</span></p><br />
+    <p>Labeled as class: <span id="res">...</span></p> <br />
+    <p>With Confidence: <span id="prob">...</span></p>
+    <br />
+  </aside> -->
+  <!-- <div id="p5_loading" class="loadingclass"></div> -->
+  <!-- <script src="sketch.js"></script> -->
+  <script src="setup.js"></script>
+  <script src="grid.js"></script>
+  <script src="cards.js"></script>
+  <script src="outcome.js"></script>
 </body>
 
 </html>
