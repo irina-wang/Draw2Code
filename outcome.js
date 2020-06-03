@@ -30,7 +30,7 @@ function drawImage() {
     // } 
 
     noStroke();
-    image(img, 30, 100, 40, 40);
+    image(img, w/3 - 100, 100, 100, 100);
 }
 
 function drawLabel() {
