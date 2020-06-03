@@ -1,6 +1,6 @@
 function draw() {
     // draw the video
-    image(capture, 0, 0, w, h);
+    image(capture, w/3, 50, 350, 350);
 
     drawGrid();
     updateGridData();
@@ -19,14 +19,18 @@ function draw() {
     code.forEach(drawCode);
     select ('#code').elt.innerText = txt; 
 
+
 }
   
-function drawImage(resource, x, y, width, height) {
+function drawImage() {
     // show image on the video + need to fix the jiggling/bouncing issue
+    // noStroke();
+    // if (detected == 2) {
+    //   image(resource, x, y, width, height);
+    // } 
+
     noStroke();
-    if (detected == 2) {
-      image(resource, x, y, width, height);
-    } 
+    image(img, 30, 100, 40, 40);
 }
 
 function drawLabel() {
@@ -105,5 +109,5 @@ function addCard() {
 }
 
 function runProgram() {
-    // drawImage();
+    drawImage();
 }

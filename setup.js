@@ -19,19 +19,19 @@ function setup(){
     capture = createCapture({
         audio: false,
         video: {
-            width: w,
-            height: h
+            width: 350,
+            height: 350
         }
     }, function() {
         console.log('capture ready.')
     });
     capture.elt.setAttribute('playsinline', '');
     createCanvas(w, h+150);
-    capture.size(w, h);
+    capture.size(350, 350);
     capture.parent('container');
     cnv = createCanvas(w, h+150);
     cnv.parent('container');
-    // capture.hide(); // tracking.js can't track the video when it's hidden
+    capture.hide(); // tracking.js can't track the video when it's hidden
 
     img = loadImage('assets/duck.png'); // Load the image
 

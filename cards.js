@@ -1,6 +1,6 @@
 // The classifier
 let classifier;
-let modelURL = 'https://teachablemachine.withgoogle.com/models/DCOOsd-jf/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/NDzsy8hWx/';
 
 // load the model
 function preload() {
