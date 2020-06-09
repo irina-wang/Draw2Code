@@ -111,3 +111,18 @@ function addCard() {
 function runProgram() {
     drawImage();
 }
+
+function takesnap() {
+    snapshots.push(video.get());
+}
+
+function draw() {
+    for (let i = 0; i < snapshots.length; i++) {
+        let w1 = 80;
+        let h1 = 60;
+        let x1 = 0;
+        let y1 = 0;
+        image(snapshots[i], 0, 0);
+        
+    }
+}

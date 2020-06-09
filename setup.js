@@ -7,11 +7,13 @@ const playBtn = document.getElementById('play');
 
 // for displaying the label
 let label = "waiting...";
+let button;
 
 // for displaying the code scanned
 let code = [];
 let txt = "";
 let behavior = [];
+let snapshots = [];
 
 function setup(){
     // create canvas
@@ -31,7 +33,7 @@ function setup(){
     capture.parent('container');
     cnv = createCanvas(w, h+150);
     cnv.parent('container');
-    capture.hide(); // tracking.js can't track the video when it's hidden
+    // capture.hide(); // tracking.js can't track the video when it's hidden
 
     img = loadImage('assets/duck.png'); // Load the image
 
@@ -43,5 +45,7 @@ function setup(){
     //   button = createButton('Show Outcome');
     //   button.position(600, 65);
     //   button.mousePressed(showImage);
-
+    button = createButton('snap');
+    button.mousePressed(takesnap);
 }
+
