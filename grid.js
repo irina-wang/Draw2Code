@@ -135,8 +135,8 @@ function drawGrid() {
         cnv.clear();
         event.data.forEach(function (r) {
             // rect(r.x, r.y, r.width, r.height);
-            drawnX = r.x;
-            drawnY = r.y;
+            drawnX = w/3 + r.x;
+            drawnY = 50 + r.y;
             drawnWidth = r.width;
             drawnHeight = r.height;
     

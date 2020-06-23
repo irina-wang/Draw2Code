@@ -19,7 +19,9 @@ function draw() {
     code.forEach(drawCode);
     select ('#code').elt.innerText = txt; 
 
-
+    for (let i = 0; i < snapshots.length; i++) {
+        image(snapshots[i], 0, 0, 40, 40); 
+    }
 }
   
 function drawImage() {
@@ -109,20 +111,17 @@ function addCard() {
 }
 
 function runProgram() {
+    run = true;
     drawImage();
 }
 
-function takesnap() {
-    snapshots.push(video.get());
-}
-
-function draw() {
+function drawAnimation() {
     for (let i = 0; i < snapshots.length; i++) {
         let w1 = 80;
         let h1 = 60;
         let x1 = 0;
         let y1 = 0;
         image(snapshots[i], 0, 0);
-        
+
     }
 }

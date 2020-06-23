@@ -8,12 +8,17 @@ const playBtn = document.getElementById('play');
 // for displaying the label
 let label = "waiting...";
 let button;
+let run = false;
 
 // for displaying the code scanned
 let code = [];
 let txt = "";
 let behavior = [];
 let snapshots = [];
+
+function preload(){
+    img = loadImage("");
+}
 
 function setup(){
     // create canvas
@@ -33,6 +38,8 @@ function setup(){
     capture.parent('container');
     cnv = createCanvas(w, h+150);
     cnv.parent('container');
+    capture.position(w/3, 50);
+    capture.style('opacity',0)// use this to hide the capture later on (change to 0 to hide)...
     // capture.hide(); // tracking.js can't track the video when it's hidden
 
     img = loadImage('assets/duck.png'); // Load the image
@@ -45,7 +52,11 @@ function setup(){
     //   button = createButton('Show Outcome');
     //   button.position(600, 65);
     //   button.mousePressed(showImage);
-    button = createButton('snap');
-    button.mousePressed(takesnap);
+    // button = createButton('snap');
+    // button.mousePressed(takesnap);
 }
 
+function takesnap() {
+    snapshots.push(capture.get());
+    console.log("snaped");
+}
