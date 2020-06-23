@@ -6,18 +6,24 @@ let w = window.innerWidth;
 const playBtn = document.getElementById('play');
 
 // for displaying the label
-let label = "waiting...";
+let label = 'waiting...';
 let button;
 let run = false;
 
 // for displaying the code scanned
 let code = [];
-let txt = "";
+let txt = '';
 let behavior = [];
 let snapshots = [];
+let targets = [];
+
+let target, trigger_play, trigger_scissors, duck;
 
 function preload(){
-    img = loadImage("");
+    target = loadImage('assets/cards/Resource.png');
+    trigger_play = loadImage('assets/cards/Trigger_Play.png');
+    trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
+    duck = loadImage('assets/images/duck.png'); // Load the image
 }
 
 function setup(){
@@ -42,8 +48,6 @@ function setup(){
     capture.style('opacity',0)// use this to hide the capture later on (change to 0 to hide)...
     // capture.hide(); // tracking.js can't track the video when it's hidden
 
-    img = loadImage('assets/duck.png'); // Load the image
-
     // detect the grid card and the drawn
     detectGrid();
     // start classifying for other coding cards
@@ -57,6 +61,28 @@ function setup(){
 }
 
 function takesnap() {
-    snapshots.push(capture.get());
-    console.log("snaped");
+    snapshots.push(capture.get()); // grabbing pixel from the image itself
+    console.log("snapped");
+}
+
+function createTarget() {
+    // create an object and save it to an array
+    let t = new Target(imageX, imageY, snapshots[snapshots.length-1]); // the last item in the takesnaps array
+    targets.push(t);
+    console.log("saved" + targets);
+}
+
+function Target(x, y, img) {	
+    this.x = imageX;	
+    this.y = imageY;	
+    this.img = img;	
+
+    this.display = function() {		
+        image(this.img, this.x, this.y);	
+    }	
+
+    this.update = function() {		
+        this.x = x;		
+        this.y = y;	
+    }
 }
