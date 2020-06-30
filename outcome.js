@@ -1,3 +1,6 @@
+let angle = 0;
+let index = 0;
+
 function draw() {
     // draw the video
     image(capture, w/3, 50, 350, 350);
@@ -19,20 +22,48 @@ function draw() {
     code.forEach(drawCode);
     select ('#code').elt.innerText = txt; 
 
-    for (let i = 0; i < snapshots.length; i++) {
-        image(snapshots[i], 0, 0, 40, 40); 
+    
+    if (run) {
+        // translate(width / 2, height / 2);
+        // rotate(angle);
+        // strokeWeight(4);
+        // stroke(255);
+        // line(0, 0, 100, 0);
+        // angle += 0.1;
+
+        
+        // for (let i = 0; i < snapshots.length; i++) {
+            noStroke();
+            let x = behavior[index].info.x;
+            let y = behavior[index].info.y;
+            let height = behavior[index].info.height;
+            let width = behavior[index].info.width;
+            image(snapshots[index], x, y, width, height); // make them repeat 
+            index = (index + 1) % snapshots.length;
+            
+            // console.log(i);
+            console.log(run);
+        // }
     }
+    // take snap
+    // if(document.getElementById('snap').clicked == true) {
+    //     takesnap();
+    // }
 }
   
 function drawImage() {
+    run = true;
     // show image on the video + need to fix the jiggling/bouncing issue
     // noStroke();
     // if (detected == 2) {
     //   image(resource, x, y, width, height);
     // } 
 
-    noStroke();
-    image(img, w/3 - 100, 100, 100, 100);
+    // for (let i = 0; i < snapshots.length; i++) {
+    //     noStroke();
+    //     image(snapshots[i], 0, 0, 60, 60); 
+    //     console.log('drawing');
+    // }
 }
 
 function drawLabel() {

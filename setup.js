@@ -58,11 +58,29 @@ function setup(){
     //   button.mousePressed(showImage);
     // button = createButton('snap');
     // button.mousePressed(takesnap);
+
+    buttonSnap = createButton('Snap');
+    buttonSnap.position(800, 65);
+    buttonSnap.mousePressed(takesnap);
+
+    buttonRun = createButton('Run');
+    buttonRun.position(800, 105);
+    buttonRun.mousePressed(drawImage);
+
+    buttonStop = createButton('Stop');
+    buttonStop.position(800, 145);
+    buttonStop.mousePressed(stop);
 }
 
 function takesnap() {
-    snapshots.push(capture.get()); // grabbing pixel from the image itself
+    snapshots.push(get(w/3, 50, 350, 350));
+    // snapshots.push(capture.get()); // grabbing pixel from the image itself
     console.log("snapped");
+    console.log(snapshots[0]);
+}
+
+function stop() {
+    run = false;
 }
 
 function createTarget() {

@@ -1,61 +1,129 @@
-<!DOCTYPE html>
-<html lang="">
+<!-- Copytight 2020 Hyejin Im, Tufts CEEO
+Supervised by Prof. Chris Rogers
+Masters Thesis, July 2020 -->
 
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- standard meta tags -->
   <title>demo</title>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-  </style>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
-      <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
-      <script src="//kig.github.io/JSARToolKit/demos/magi.js"></script>
-      <script src="//kig.github.io/JSARToolKit/JSARToolKit.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tracking.js/1.1.3/tracking-min.js"></script>
-      <link href="https://fonts.googleapis.com/css?family=Work+Sans|Poppins" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="style.css">
+  <meta name="author" content="Hyejin Im">
+
+  <!-- twitter card data -->
+  <!-- <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hyejinim">
+  <meta name="twitter:title" content="Draw2code">
+  <meta name="twitter:description" content="Short description">
+  <meta name="twitter:creator" content="@hyejinim">
+  <meta name="twitter:image:src" content="https://image.jpg"> -->
+
+  <!-- favicons, fonts, stylesheets & scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+  <script src="https://unpkg.com/ml5@0.4.2/dist/ml5.min.js"></script>
+  <script src="//kig.github.io/JSARToolKit/demos/magi.js"></script>
+  <script src="//kig.github.io/JSARToolKit/JSARToolKit.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tracking.js/1.1.3/tracking-min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans|Poppins" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="start-page.css">
+  <link rel="stylesheet" type="text/css" href="tutorial-page.css"> -->
+  <script src="setup.js"></script>
+  <script src="grid.js"></script>
+  <script src="cards.js"></script>
+  <script src="outcome.js"></script>
 </head>
 
 <body>
-  <!-- <h2>Grid Card Detection: Marker Tracking (JSARToolKit) + Contour Detection (trackingjs)</h2> -->
-<!--    <p>Threshold: <input type="range" id="thresholdAmount" value="50"></p>-->
-<!-- <p>Grid detected: <span id="gridDetected"></span></p>   -->
-<!-- <p>Markers detected: <span id="markersDetected"></span></p> -->
-<!-- <p>The drawn detected: <span id="drawnDetected"></span></p>
-<p>Grid position: (<span id="gridX"></span>, <span id="gridY"></span>)</p>
-<p>Grid width: <span id="gridWidth"></span></p>
-<p>Grid height: <span id="gridHeight"></span></p>
-<p>Drawn position: (<span id="drawnX"></span>, <span id="drawnY"></span>)</p>
-<p>Drawn box width: <span id="drawnWidth"></span></p>
-<p>Drawn box height: <span id="drawnHeight"></span></p> -->
-<!-- <p>Image position: (<span id="imageX"></span>, <span id="imageY"></span>)</p> -->
-<!-- <p>Image size: width <span id="imageWidth"></span> height <span id="imageHeight"></span></p> -->
+
+  
+  <!-- <div class="start-bg"></div> -->
+
+  <!-- INFO PAGE -->
+  <!-- <section class="page-info">
+    <div class="info-content">
+      <h1>How It Works</h1>
+      <p>Draw2code is blah blah</p>
+      <p>Built by Hyejin Im from Tufts CEEO</p>
+    </div>
+  </section> -->
+
+  <!-- START PAGE -->
+  <!-- <section class="page-start">
+    <div class="start-content">
+      <h1 class="start-logo">
+        <img src="assets/logo.gif" alt="Draw2code" class="start-logo-image">
+      </h1>
+      <h2 class="start-subtitle">Program with paper cards to make animation</h2>
+      <div class="start-button-container">
+        <button class="button-large progress start-button" disabled>
+          Loading...
+        </button>
+      </div>
+    </div>
+
+    <footer class="start-footer">
+      <img src="assets/footer-intro.svg"
+        class="start-footer-image"
+        alt="">
+    </footer>
+  </section> -->
+
+  <!-- TUTORIAL PAGE -->
+  <!-- <section class="page-tutorial">
+    <section class="tutorial-part tutorial-part-1">
+      <div class="card tutorial-part-content">
+        <div class="tutorial-text">
+          Description
+        </div>
+        <div class="tutorial-image">
+          <img src="assets/tutorial-conducting.gif">
+        </div>
+        <div class="tutorial-controls">
+          <button class="button-large tutorial-next">Next</button>
+        </div>
+      </div>
+    </section>
+    <section class="tutorial-part tutorial-part-2">
+      <div class="card tutorial-part-content">
+        <div class="tutorial-text">
+          Description
+        </div>
+        <div class="tutorial-image">
+          <img src="assets/tutorial-volume.gif">
+        </div>
+        <div class="tutorial-controls">
+          <button class="button-large tutorial-next">Next</button>
+        </div>
+      </div>
+    </section>
+    <section class="tutorial-part tutorial-part-3">
+      <div class="card tutorial-part-content">
+        <div class="tutorial-text">
+          Description
+        </div>
+        <div class="tutorial-image">
+          <img src="assets/tutorial-sections.gif">
+        </div>
+        <div class="tutorial-controls">
+          <button class="button-large tutorial-end">Let's go</button>
+        </div>
+      </div>
+    </section>
+  </section> -->
 
   <!-- if you'd like to specify a location for the canvas -->
   <div id="container"></div> 
   <div id="codeBar">
     <p><span id="code"></span></p>
-    <button class="run-btn" id="run" onClick="drawImage()">Run</button>
-    <button class="run-btn" id="run" onClick="takesnap()">Snap</button>
-    <button class="run-btn" id="run" onClick="createTarget()">Save</button>
+    <button class="run-btn" id="save" onClick="createTarget()">Save</button>
   </div>
-  <!-- <aside>
-    <p>Classifier: <span id="checkPointSlug">...</span></p><br />
-    <p>Labeled as class: <span id="res">...</span></p> <br />
-    <p>With Confidence: <span id="prob">...</span></p>
-    <br />
-  </aside> -->
-  <!-- <div id="p5_loading" class="loadingclass"></div> -->
-  <!-- <script src="sketch.js"></script> -->
-  <script src="setup.js"></script>
-  <script src="grid.js"></script>
-  <script src="cards.js"></script>
-  <script src="outcome.js"></script>
+  
+  <!-- Google Analytics -->
 </body>
 
 </html>
