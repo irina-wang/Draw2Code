@@ -2,25 +2,27 @@ let angle = 0;
 let index = 0;
 
 function draw() {
-    // draw the video
-    image(capture, w/3, 50, 350, 350);
+    if (scan) {
+        // draw the video
+        image(capture, w/3, 50, 350, 350);
 
-    drawGrid();
-    updateGridData();
-    // drawImage(); // for drawing a duck
+        drawGrid();
+        updateGridData();
+        // drawImage(); // for drawing a duck
 
-    // draw the label
-    drawLabel();
-    // drawCard
+        // draw the label
+        drawLabel();
+        // drawCard
 
-    // drawBar();
-    if (mouseIsPressed &&
-        mouseX > 0 && mouseX < width &&
-        mouseY > 0 && mouseY < height) {
-            addCard();
+        // drawBar();
+        if (mouseIsPressed &&
+            mouseX > 0 && mouseX < width &&
+            mouseY > 0 && mouseY < height) {
+                addCard();
+        }
+        code.forEach(drawCode);
+        select ('#code').elt.innerText = txt; 
     }
-    code.forEach(drawCode);
-    select ('#code').elt.innerText = txt; 
 
     
     if (run) {
@@ -53,6 +55,7 @@ function draw() {
   
 function drawImage() {
     run = true;
+    scan = false;
     // show image on the video + need to fix the jiggling/bouncing issue
     // noStroke();
     // if (detected == 2) {
@@ -80,7 +83,7 @@ function drawLabel() {
         // put it into code array
         // code.push(label);
     }
-    // Pick an emoji, the "default" is train
+    // the "default" is none
     // let emoji = "🚂";
     // if (label == "Rainbow") {
     // emoji = "🌈";

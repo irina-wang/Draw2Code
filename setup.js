@@ -9,6 +9,7 @@ const playBtn = document.getElementById('play');
 let label = 'waiting...';
 let button;
 let run = false;
+let scan = true;
 
 // for displaying the code scanned
 let code = [];
