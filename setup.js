@@ -6,7 +6,7 @@ if (location.protocol != 'https:') {
 // the video
 let capture;
 let w = window.innerWidth;
-    h = (w*9/16)-150;
+    h = window.innerWidth;
 
 const playBtn = document.getElementById('play');
 
