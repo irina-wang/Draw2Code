@@ -140,10 +140,10 @@ function drawGrid() {
             drawnHeight = r.height;
     
             // get the size and position to draw an image
-            imageX = ((drawnX-gridX)/gridWidth) * capture.width;
-            imageY = ((drawnY-gridY)/gridHeight) * capture.height;
-            imageWidth = drawnWidth/gridWidth * capture.width;
-            imageHeight = drawnHeight/gridHeight * capture.height;
+            imageX = ((drawnX-gridX)/gridWidth) * window.width;
+            imageY = ((drawnY-gridY)/gridHeight) * (window.height *2/3);
+            imageWidth = drawnWidth/gridWidth * window.width;
+            imageHeight = drawnHeight/gridHeight * window.height;
         })
     });
 
@@ -152,6 +152,9 @@ function drawGrid() {
     stroke(255, 0, 0); // red
     noFill();
     rect(drawnX, drawnY, drawnWidth, drawnHeight);
+
+    stroke(0, 255, 0); // red
+    rect(imageX, imageY, imageWidth, imageWidth);
 
     // change the color to track
     // if (mouseIsPressed &&

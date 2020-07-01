@@ -1,3 +1,8 @@
+// detect HTTP or HTTPS then force HTTPS
+if (location.protocol != 'https:') {
+    location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+   }
+
 // the video
 let capture;
 let w = window.innerWidth;
