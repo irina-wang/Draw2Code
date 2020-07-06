@@ -1,7 +1,7 @@
 // detect HTTP or HTTPS then force HTTPS
-if (location.protocol != 'https:') {
-    location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-}
+// if (location.protocol != 'https:') {
+//     location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+// }
 
 if (window.matchMedia("(orientation: portrait)").matches) {
     // you're in PORTRAIT mode
