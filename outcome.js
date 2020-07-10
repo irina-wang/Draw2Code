@@ -12,7 +12,11 @@ function draw() {
 
         // draw the label
         drawLabel();
-        // drawCard
+        
+        
+        
+        // image('Reurce.png', 0, 0, 50, 50);
+        
 
         // drawBar();
         if (mouseIsPressed &&
@@ -20,12 +24,13 @@ function draw() {
             mouseY > 0 && mouseY < height) {
                 addCard();
         }
-        code.forEach(drawCode);
+        // code.forEach(drawCode);
         select ('#code').elt.innerText = txt; 
+        drawCode();
     }
 
     
-    if (run) {
+    else if (run) {
         // translate(width / 2, height / 2);
         // rotate(angle);
         // strokeWeight(4);
@@ -73,16 +78,34 @@ function drawLabel() {
     textSize(32);
     textAlign(CENTER, CENTER);
     noStroke();
-    fill(255);
+    fill(0);
     textFont('Work Sans');
-    text(label, width / 2, h-200);
+    text(label, w / 2, 30);
+    
 
-    if (label == "none" || label == "waiting...") { // new card is detected
+    
+    // if (label == "none" || label == "waiting...") { // new card is detected
         
-    } else {
-        // put it into code array
-        // code.push(label);
+    // } else {
+    //     // put it into code array
+    //     // code.push(label);
+    // }
+
+    let card = "";
+    if (label == "Resource") {
+        // card = target;
+        image(target, 0, 0);
+    } else if (label == "Trigger_Run") {
+        // card = trigger_play;
+        image(trigger_play, 0, 0);
+    } else if (label == "Trigger_Scissors") {
+        // card = trigger_scissors;
+        image(trigger_scissors, 0, 0);
     }
+    // image(card, 0, 0);
+
+    // Draw the card
+    // image(card, w/3, 50, 250, 250);
     // the "default" is none
     // let emoji = "🚂";
     // if (label == "Rainbow") {
@@ -98,9 +121,10 @@ function drawLabel() {
     // text(emoji, width / 2, height / 2);
 }
 
-function drawCard() {
-    // add graphics for each class to assets folder
-    // draw graphic of the currently detected card in the center middle
+function drawCode() {
+    for (let i = 0; i < code.length; i++) {
+        
+    }
 }
 
 function drawBar() {

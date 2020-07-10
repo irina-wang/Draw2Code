@@ -3,44 +3,59 @@
 //     location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 
-if (window.matchMedia("(orientation: portrait)").matches) {
-    // you're in PORTRAIT mode
- }
+// if (window.matchMedia("(orientation: portrait)").matches) {
+//     // you're in PORTRAIT mode
+//  }
  
- if (window.matchMedia("(orientation: landscape)").matches) {
-    // you're in LANDSCAPE mode
-}
+//  if (window.matchMedia("(orientation: landscape)").matches) {
+//     // you're in LANDSCAPE mode
+// }
 
 // the video
 let capture;
 let w = window.innerWidth;
-    h = window.innerWidth;
+    h = window.innerHeight;
 
 const playBtn = document.getElementById('play');
 
-// for displaying the label
+// display the label
 let label = 'waiting...';
 let button;
 let run = false;
 let scan = true;
 
-// for displaying the code scanned
+// display the code scanned
 let code = [];
 let txt = '';
 let behavior = [];
 let snapshots = [];
 let targets = [];
 
-let target, trigger_play, trigger_scissors, duck;
+// card images
+let target;
+let trigger_play;
+let trigger_scissors;
+let duck;
 
-function preload(){
-    target = loadImage('assets/cards/Resource.png');
-    trigger_play = loadImage('assets/cards/Trigger_Play.png');
-    trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
-    duck = loadImage('assets/images/duck.png'); // Load the image
+function preload() {
+    // preload() is not working for some reason 
+    console.log('called');
+    // preload() runs once
+    // target = loadImage('assets/cards/Resource.png');
+    // trigger_play = loadImage('assets/cards/Trigger_Play.png');
+    // trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
+    // duck = loadImage('assets/images/duck.png'); // Load the image
 }
 
 function setup(){
+    // setup() waits until preload() is done
+
+    // Load the image
+    target = loadImage('assets/cards/Resource.png');
+    trigger_play = loadImage('assets/cards/Trigger_Play.png');
+    trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
+    duck = loadImage('assets/images/duck.png'); 
+
     // create canvas
     pixelDensity(1); // this makes the internal p5 canvas smaller
     capture = createCapture({
@@ -84,10 +99,13 @@ function setup(){
     buttonStop = createButton('Stop');
     buttonStop.position(800, 145);
     buttonStop.mousePressed(stop);
+
+    duck = loadImage('assets/images/duck.png');
+    // target = loadImage('assets/cards/Resource.png');
 }
 
 function takesnap() {
-    snapshots.push(get(w/3, 50, 350, 350));
+    snapshots.push(get(w/3, 50, 250, 250));
     // snapshots.push(capture.get()); // grabbing pixel from the image itself
     console.log("snapped");
     console.log(snapshots[0]);
