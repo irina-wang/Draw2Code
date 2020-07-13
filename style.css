@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://cdn.glitch.com/a5744ade-4490-4aa8-a986-d6adcef95337%2FMaterialIcons-Regular.woff2?v=1556728695937) format('woff2'),
+      url(https://cdn.glitch.com/a5744ade-4490-4aa8-a986-d6adcef95337%2FMaterialIcons-Regular.woff?v=1556728683844) format('woff'),
+      url(https://cdn.glitch.com/a5744ade-4490-4aa8-a986-d6adcef95337%2FMaterialIcons-Regular.ttf?v=1556728663004) format('truetype');
+}
+
+body {
+    background: #eee;
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    position: relative;
+}
+
+#codeBar {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0px -2px -3px #ccc;
+    color: #18b0ff;
+    position: absolute;
+    margin-top: 450px;
+    width: 100%;
+    height: 100px;
+    border-color: black;
+}
+
+canvas,
+video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+button {
+    font-family: 'Work Sans', sans-serif;
+    margin: 2px;
+    padding: 4px;
+}
+
+.run-btn {
+    float: right;
+    margin-right: 3em;
+    margin-top: 2em;
+    border-radius: 6px;
+    border: 1px solid #d4d4d4;
+    padding: .5em 1em .5em 1em;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #ff41bf;
+    color: white;
+}
+
+p {
+    display: inline;
+    font-size: 14px;
+}
+
+h6{
+    margin: 4px;
+    font-weight: lighter;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+  
+label {
+    font-family: monospace;
+    /* font-family: 'Work Sans', sans-serif; */
+    font-size: 14px;
+}
+
+aside {
+    position: absolute;
+    padding: 1em;
+    border-radius: 3px;
+    border-color: black;
+    float: right;
+    bottom: 2em;
+    right: 2em;
+    width: 25%;
+    box-shadow: 0px 2px 3px #ccc;
+    background: white;
+}
+
+aside span {
+    font-family: monospace;
+    float: right;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    padding-right: .5em;
+    display: inline-flex;
+    vertical-align: middle;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+#classifierName {
+    font-family: monospace;
+}
+  
+#checkpointAddress {
+    width: 100%;
+    margin-top: .5em;
+    min-height: 2em;
+}
+  
+#retrieve {
+    margin-right: 0;
+    margin-top: 1em;
+}
+
+/* TUTORIAL PAGE */
+.page-tutorial {
+    height: 100%;
+  }
+  
+  .tutorial-part {
+    display: none; 
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.8rem;
+    color: '#000';
+  }
+  
+  .tutorial-part-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    background: white;
+    width: 600px;
+    height: 400px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
+  }
+  
+  .tutorial-image img {
+    height: 200px;
+  }
