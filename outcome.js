@@ -21,8 +21,9 @@ function draw() {
         
         // code.forEach(drawCode);
         // select ('#code').elt.innerText = txt; 
-        drawCode();
         drawBottomBar();
+        drawCode();
+        
     }    else if (play) {
         scan = false;
         // draw the video
@@ -93,20 +94,19 @@ function drawLabel() {
     imageMode(CENTER);
     let card = "";
     if (label == "Resource") {
-        card = target;
+        card = Resource;
         // image(target, w/2, h/3, 300, 250);
     } else if (label == "Trigger_Run") {
-        card = trigger_play;
+        card = Trigger_Run;
         // image(trigger_play, w/2, h/3, 300, 250);
     } else if (label == "Trigger_Scissors") {
-        card = trigger_scissors;
+        card = Trigger_Scissors;
         // image(trigger_scissors, w/2, h/3, 300, 250);
     }
-    // image(card, 0, 0);
 
     // Draw the card
     if (card) {
-        image(card, w/2, h/3, 300, 250);
+        image(card, w/2, (h-120)/2, 300, 250);
     }
     
     // the "default" is none
@@ -141,12 +141,34 @@ function getTxt(value, index) {
     txt = txt + value + "  +  ";  // show the code on the bottom bar
 }
 
-function drawCode(value, index) {
-    // textSize(32);
-    // textAlign(CENTER, CENTER);
-    // fill(0);
-    // text(txt, width / 2, height-100);
-    // console.log(txt);
+function drawCode() {
+    let item = '';
+    let itemX = 80;
+    let itemWidth = 0;
+
+    for (let i = 0; i < code.length; i++) {
+        item = code[i];
+
+        if (item == "Resource") {
+            item = Resource;
+            itemWidth = 130;
+        } else if (item == "Trigger_Run") {
+            item = Trigger_Run;
+            itemWidth = 110;
+        } else if (item == "Trigger_Scissors") {
+            item = Trigger_Scissors;
+            itemWidth = 175;
+        }
+
+        image(item, itemX, h-60, 140, 100);
+        itemX = itemX + itemWidth;
+    }
+    
+
+    // for (let i = 0; i < code.length; i++) {
+    //     item = code[i];
+    //     image(item, itemX, h-60, 150, 150);
+    //     itemX = itemX + 100;
 }
 
 function addCard() {
