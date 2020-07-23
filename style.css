@@ -56,6 +56,12 @@ button {
     padding: 4px;
 }
 
+#myBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 .run-btn {
     float: right;
     margin-right: 3em;
