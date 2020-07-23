@@ -16,8 +16,6 @@ let capture;
 let w = window.innerWidth;
     h = window.innerHeight;
 
-// const playBtn = document.getElementById('play');
-
 // display the label
 let label = 'waiting...';
 let button;
@@ -39,9 +37,11 @@ let trigger_scissors;
 let duck;
 
 function preload() {
-    // preload() is not working for some reason 
-    console.log('called');
     // preload() runs once
+    
+    console.log('called'); // preload() is not working for some reason 
+
+    // load card images
     // target = loadImage('assets/cards/Resource.png');
     // trigger_play = loadImage('assets/cards/Trigger_Play.png');
     // trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
