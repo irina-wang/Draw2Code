@@ -133,12 +133,12 @@ function createTarget() {
 function switchCamera()
 {
   switchFlag = !switchFlag;
+  stopCapture();
   if(switchFlag==true)
   {
    capture.remove();
    options = {
      video: {
-        
          facingMode: {
           exact: "environment"
         }
@@ -151,16 +151,24 @@ function switchCamera()
    capture.remove();
    options = {
      video: {
-        
          facingMode: {
           exact: "user"
         }
      }
    };
-    
   }
   capture = createCapture(options);
-  
+}
+
+function stopCapture() {
+  let stream = capture.elt.srcObject;
+  let tracks = stream.getTracks();
+
+  tracks.forEach(function(track) {
+    track.stop();
+  });
+
+  capture.elt.srcObject = null;
 }
 
 // function Target(newX, newY, img) {	
