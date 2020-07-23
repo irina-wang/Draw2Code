@@ -31,9 +31,9 @@ let snapshots = [];
 let targets = [];
 
 // card images
-let target;
-let trigger_play;
-let trigger_scissors;
+let Resource;
+let Trigger_Run;
+let Trigger_Scissors;
 let duck;
 
 function preload() {
@@ -52,9 +52,10 @@ function setup(){
     // setup() waits until preload() is done
 
     // Load the image
-    target = loadImage('assets/cards/Resource.png');
-    trigger_play = loadImage('assets/cards/Trigger_Play.png');
-    trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
+    Resource = loadImage('assets/cards/Resource.png');
+    Trigger_Run = loadImage('assets/cards/Trigger_Play.png');
+    Trigger_Scissors = loadImage('assets/cards/Trigger_Scissors.png');
+    Behavior = loadImage('assets/cards/Action.png')
     // duck = loadImage('assets/images/duck.png'); 
 
     // create canvas
@@ -143,20 +144,13 @@ function setup(){
     // target = loadImage('assets/cards/Resource.png');
 }
 
-function takeSnap() {
-    snapshots.push(get(w/3, 50, 250, 250));
-    // snapshots.push(capture.get()); // grabbing pixel from the image itself
-    console.log('snapped');
-    // console.log(snapshots[0]);
-}
-
 function stop() {
     play = false;
 }
 
-function createTarget() {
-    // create an object and save it to an array
-    let t = new Target(imageX, imageY, snapshots[snapshots.length-1]); // the last item in the takesnaps array
-    targets.push(t);
-    console.log('saved' + targets);
-}
+// function createTarget() {
+//     // create an object and save it to an array
+//     let t = new Target(imageX, imageY, snapshots[snapshots.length-1]); // the last item in the takesnaps array
+//     targets.push(t);
+//     console.log('saved' + targets);
+// }

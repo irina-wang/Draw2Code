@@ -21,8 +21,9 @@ function draw() {
         
         // code.forEach(drawCode);
         // select ('#code').elt.innerText = txt; 
-        drawCode();
         drawBottomBar();
+        drawCode();
+        
     }    else if (play) {
         scan = false;
         // draw the video
@@ -92,21 +93,27 @@ function drawLabel() {
     // }
     imageMode(CENTER);
     let card = "";
+    let cardW = 0;
+    let cardH = 0;
     if (label == "Resource") {
-        card = target;
-        // image(target, w/2, h/3, 300, 250);
+        card = Resource;
+        cardW = 340;
+        cardH = 250;
     } else if (label == "Trigger_Run") {
-        card = trigger_play;
-        // image(trigger_play, w/2, h/3, 300, 250);
+        card = Trigger_Run;
+        cardW = 300;
+        cardH = 250;
     } else if (label == "Trigger_Scissors") {
-        card = trigger_scissors;
-        // image(trigger_scissors, w/2, h/3, 300, 250);
+        card = Trigger_Scissors;
+    } else if (label == "Behavior") {
+        card = Behavior;
+        cardW = 400;
+        cardH = 250;
     }
-    // image(card, 0, 0);
 
     // Draw the card
     if (card) {
-        image(card, w/2, h/3, 300, 250);
+        image(card, w/2, (h-120)/2, cardW, cardH);
     }
     
     // the "default" is none
@@ -141,20 +148,54 @@ function getTxt(value, index) {
     txt = txt + value + "  +  ";  // show the code on the bottom bar
 }
 
-function drawCode(value, index) {
-    // textSize(32);
-    // textAlign(CENTER, CENTER);
-    // fill(0);
-    // text(txt, width / 2, height-100);
-    // console.log(txt);
+function drawCode() {
+    let item = '';
+    let itemX = 80;
+    let itemW = 0;
+    let itemGap = 0;
+    let drawing;
+
+    for (let i = 0; i < code.length; i++) {
+        item = code[i];
+
+        if (item == "Resource") {
+            item = Resource;
+            itemW = 145;
+            itemGap = itemW - 20;
+            drawing = snapshots[i]; // need to be updated later
+            image(drawing, itemX+10, h-60, 75, 75);
+        } else if (item == "Trigger_Run") {
+            item = Trigger_Run;
+            itemW = 120;
+            itemGap = itemW + 15;
+        } else if (item == "Trigger_Scissors") {
+            item = Trigger_Scissors;
+            itemW = 175;
+            itemGap = itemW + 15;
+        } else if (item == "Behavior") {
+            item = Behavior;
+            itemW = 175;
+            itemGap = itemW - 12;
+        }
+
+
+        image(item, itemX, h-60, itemW, 100);
+
+        itemX = itemX + itemGap;
+    }
+    
+
+    // for (let i = 0; i < code.length; i++) {
+    //     item = code[i];
+    //     image(item, itemX, h-60, 150, 150);
+    //     itemX = itemX + 100;
 }
 
 function addCard() {
-    console.log('add card pressed');
-    if (label != "None" && label != "Undefined") {
+    if (label != "None" && label != "Undefined" && label != "waiting...") {
         code.push(label);
-        txt = '';
-        code.forEach(getTxt);
+        // txt = '';
+        // code.forEach(getTxt);
 
 
         if (label == "Resource") {
@@ -169,9 +210,16 @@ function addCard() {
             behavior.push({info: info});
         }
 
-        console.log("txt: " + code);
-        console.log("behavior: " + behavior);
+        // console.log("txt: " + code);
+        // console.log("behavior: " + behavior);
     }
+}
+
+function takeSnap() {
+    snapshots.push(get((w/2)-70, (h-120)/2-100, 190, 190));
+    // snapshots.push(capture.get()); // grabbing pixel from the image itself
+    console.log('snapped');
+    // console.log(snapshots[0]);
 }
 
 function runProgram() {
