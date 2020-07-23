@@ -68,12 +68,12 @@ function setup(){
         console.log('capture ready.')
     });
     capture.elt.setAttribute('playsinline', '');
-    createCanvas(w, h+150);
+    createCanvas(w, h);
     capture.size(350, 350);
     capture.parent('container');
-    cnv = createCanvas(w, h+150);
+    cnv = createCanvas(w, h);
     cnv.parent('container');
-    capture.position(w/3, 50);
+    capture.position(w/2, h/2);
     capture.style('opacity',0)// use this to hide the capture later on (change to 0 to hide)...
     // capture.hide(); // tracking.js can't track the video when it's hidden
 
@@ -88,6 +88,10 @@ function setup(){
     // button = createButton('snap');
     // button.mousePressed(takesnap);
 
+    buttonSnap = createButton('Snap');
+    buttonSnap.position(800, 65);
+    buttonSnap.mousePressed(takesnap);
+    
     buttonSnap = createButton('Snap');
     buttonSnap.position(800, 65);
     buttonSnap.mousePressed(takesnap);
@@ -122,17 +126,17 @@ function createTarget() {
     console.log("saved" + targets);
 }
 
-function Target(x, y, img) {	
-    this.x = imageX;	
-    this.y = imageY;	
-    this.img = img;	
+// function Target(newX, newY, img) {	
+//     this.x = imageX;	
+//     this.y = imageY;	
+//     this.img = img;	
 
-    this.display = function() {		
-        image(this.img, this.x, this.y);	
-    }	
+//     this.display = function() {		
+//         image(this.img, this.x, this.y);	
+//     }	
 
-    this.update = function() {		
-        this.x = x;		
-        this.y = y;	
-    }
-}
+//     this.update = function() {		
+//         this.x = newX;		
+//         this.y = newY;	
+//     }
+// }

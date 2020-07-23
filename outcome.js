@@ -4,7 +4,8 @@ let index = 0;
 function draw() {
     if (scan) {
         // draw the video
-        image(capture, w/3, 50, 350, 350);
+        imageMode(CENTER);
+        image(capture, w/2, h/3, 350, 350);
 
         drawGrid();
         updateGridData();
@@ -80,7 +81,7 @@ function drawLabel() {
     noStroke();
     fill(0);
     textFont('Work Sans');
-    text(label, w / 2, 30);
+    text(label, w/2, 50);
     
 
     
@@ -90,22 +91,25 @@ function drawLabel() {
     //     // put it into code array
     //     // code.push(label);
     // }
-
+    imageMode(CENTER);
     let card = "";
     if (label == "Resource") {
-        // card = target;
-        image(target, 0, 0);
+        card = target;
+        // image(target, w/2, h/3, 300, 250);
     } else if (label == "Trigger_Run") {
-        // card = trigger_play;
-        image(trigger_play, 0, 0);
+        card = trigger_play;
+        // image(trigger_play, w/2, h/3, 300, 250);
     } else if (label == "Trigger_Scissors") {
-        // card = trigger_scissors;
-        image(trigger_scissors, 0, 0);
+        card = trigger_scissors;
+        // image(trigger_scissors, w/2, h/3, 300, 250);
     }
     // image(card, 0, 0);
 
     // Draw the card
-    // image(card, w/3, 50, 250, 250);
+    if (card) {
+        image(card, w/2, h/3, 300, 250);
+    }
+    
     // the "default" is none
     // let emoji = "🚂";
     // if (label == "Rainbow") {
@@ -121,11 +125,11 @@ function drawLabel() {
     // text(emoji, width / 2, height / 2);
 }
 
-function drawCode() {
-    for (let i = 0; i < code.length; i++) {
+// function drawCode() {
+//     for (let i = 0; i < code.length; i++) {
         
-    }
-}
+//     }
+// }
 
 function drawBar() {
     noStroke;
