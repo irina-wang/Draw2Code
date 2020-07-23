@@ -150,7 +150,6 @@ function drawCode(value, index) {
 }
 
 function addCard() {
-    console.log('add card pressed');
     if (label != "None" && label != "Undefined") {
         code.push(label);
         txt = '';
