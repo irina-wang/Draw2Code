@@ -105,7 +105,7 @@ function setup(){
     buttonStop.mousePressed(stop);
 
     switchBtn = createButton('Switch Camera');
-    switchBtn.position(10, 175);
+    switchBtn.position(10, 185);
     switchBtn.mousePressed(switchCamera);
 
     duck = loadImage('assets/images/duck.png');
