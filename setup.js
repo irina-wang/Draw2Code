@@ -104,10 +104,6 @@ function setup(){
     buttonStop.position(10, 145);
     buttonStop.mousePressed(stop);
 
-    switchBtn = createButton('Switch Camera');
-    switchBtn.position(10, 185);
-    switchBtn.mousePressed(switchCamera);
-
     duck = loadImage('assets/images/duck.png');
     // target = loadImage('assets/cards/Resource.png');
 }
@@ -128,47 +124,6 @@ function createTarget() {
     let t = new Target(imageX, imageY, snapshots[snapshots.length-1]); // the last item in the takesnaps array
     targets.push(t);
     console.log("saved" + targets);
-}
-
-function switchCamera()
-{
-  switchFlag = !switchFlag;
-  stopCapture();
-  if(switchFlag==true)
-  {
-   capture.remove();
-   options = {
-     video: {
-         facingMode: {
-          exact: "environment"
-        }
-     }
-   };
-
-  }
-  else
-  {
-   capture.remove();
-   options = {
-     video: {
-         facingMode: {
-          exact: "user"
-        }
-     }
-   };
-  }
-  capture = createCapture(options);
-}
-
-function stopCapture() {
-  let stream = capture.elt.srcObject;
-  let tracks = stream.getTracks();
-
-  tracks.forEach(function(track) {
-    track.stop();
-  });
-
-  capture.elt.srcObject = null;
 }
 
 // function Target(newX, newY, img) {	
