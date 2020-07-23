@@ -162,7 +162,8 @@ function drawCode() {
             item = Resource;
             itemW = 145;
             itemGap = itemW - 20;
-            drawing = snapshots[i]; // need to update later
+            drawing = snapshots[i]; // need to be updated later
+            image(drawing, itemX+10, h-60, 75, 75);
         } else if (item == "Trigger_Run") {
             item = Trigger_Run;
             itemW = 120;
@@ -179,10 +180,6 @@ function drawCode() {
 
 
         image(item, itemX, h-60, itemW, 100);
-
-        if (drawing) {
-            image(drawing, itemX+10, h-60, 75, 75);
-        }
 
         itemX = itemX + itemGap;
     }
