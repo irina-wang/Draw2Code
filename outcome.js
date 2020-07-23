@@ -58,6 +58,7 @@ function draw() {
 }
   
 function drawImage() {
+    console.log('run button pressed')
     run = true;
     scan = false;
     // show image on the video + need to fix the jiggling/bouncing issue
@@ -149,6 +150,7 @@ function drawCode(value, index) {
 }
 
 function addCard() {
+    console.log('add card pressed');
     if (label != "None" && label != "Undefined") {
         code.push(label);
         txt = '';

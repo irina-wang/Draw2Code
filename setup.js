@@ -118,17 +118,24 @@ function setup(){
     // button = createButton('snap');
     // button.mousePressed(takesnap);
 
-    buttonSnap = createButton('Add');
-    buttonSnap.position(10, 65);
-    buttonSnap.mousePressed(addCard);
+    buttonAdd = createButton('Add');
+    buttonAdd.id('addBtn');
+    buttonAdd.position(w-115, (h-120)/2-55);
+    buttonAdd.mousePressed(addCard);
     
     buttonPlay = createButton('Play');
-    buttonPlay.position(10, 105);
+    buttonPlay.id('playBtn');
+    buttonPlay.position(w-115, 10);
     buttonPlay.mousePressed(drawImage);
 
-    buttonStop = createButton('Stop');
-    buttonStop.position(10, 145);
-    buttonStop.mousePressed(stop);
+    buttonPlay = createButton('Tutorial');
+    buttonPlay.id('tutorialBtn');
+    buttonPlay.position(10, 10);
+    buttonPlay.mousePressed(openTutorial);
+
+    // buttonStop = createButton('Stop');
+    // buttonStop.position(10, 145);
+    // buttonStop.mousePressed(stop);
 
     // duck = loadImage('assets/images/duck.png');
 
