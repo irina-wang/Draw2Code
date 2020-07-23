@@ -89,19 +89,19 @@ function setup(){
     // button.mousePressed(takesnap);
 
     buttonSnap = createButton('Snap');
-    buttonSnap.position(800, 65);
+    buttonSnap.position(10, 65);
     buttonSnap.mousePressed(takesnap);
     
     buttonSnap = createButton('Snap');
-    buttonSnap.position(800, 65);
+    buttonSnap.position(10, 65);
     buttonSnap.mousePressed(takesnap);
 
     buttonRun = createButton('Run');
-    buttonRun.position(800, 105);
+    buttonRun.position(10, 105);
     buttonRun.mousePressed(drawImage);
 
     buttonStop = createButton('Stop');
-    buttonStop.position(800, 145);
+    buttonStop.position(10, 145);
     buttonStop.mousePressed(stop);
 
     duck = loadImage('assets/images/duck.png');
