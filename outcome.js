@@ -93,20 +93,27 @@ function drawLabel() {
     // }
     imageMode(CENTER);
     let card = "";
+    let cardW = 0;
+    let cardH = 0;
     if (label == "Resource") {
         card = Resource;
-        // image(target, w/2, h/3, 300, 250);
+        cardW = 340;
+        cardH = 250;
     } else if (label == "Trigger_Run") {
         card = Trigger_Run;
-        // image(trigger_play, w/2, h/3, 300, 250);
+        cardW = 300;
+        cardH = 250;
     } else if (label == "Trigger_Scissors") {
         card = Trigger_Scissors;
-        // image(trigger_scissors, w/2, h/3, 300, 250);
+    } else if (label == "Behavior") {
+        card = Behavior;
+        cardW = 400;
+        cardH = 250;
     }
 
     // Draw the card
     if (card) {
-        image(card, w/2, (h-120)/2, 300, 250);
+        image(card, w/2, (h-120)/2, cardW, cardH);
     }
     
     // the "default" is none
@@ -144,24 +151,40 @@ function getTxt(value, index) {
 function drawCode() {
     let item = '';
     let itemX = 80;
-    let itemWidth = 0;
+    let itemW = 0;
+    let itemGap = 0;
+    let drawing;
 
     for (let i = 0; i < code.length; i++) {
         item = code[i];
 
         if (item == "Resource") {
             item = Resource;
-            itemWidth = 130;
+            itemW = 145;
+            itemGap = itemW - 20;
+            drawing = snapshots[i]; // need to update later
         } else if (item == "Trigger_Run") {
             item = Trigger_Run;
-            itemWidth = 110;
+            itemW = 120;
+            itemGap = itemW + 15;
         } else if (item == "Trigger_Scissors") {
             item = Trigger_Scissors;
-            itemWidth = 175;
+            itemW = 175;
+            itemGap = itemW + 15;
+        } else if (item == "Behavior") {
+            item = Behavior;
+            itemW = 175;
+            itemGap = itemW - 12;
         }
 
-        image(item, itemX, h-60, 140, 100);
-        itemX = itemX + itemWidth;
+
+        image(item, itemX, h-60, itemW, 100);
+
+        if (drawing) {
+            image(drawing, itemX+10, h-60, 75, 75);
+        }
+
+        itemX = itemX + itemGap;
     }
     
 
@@ -172,10 +195,10 @@ function drawCode() {
 }
 
 function addCard() {
-    if (label != "None" && label != "Undefined") {
+    if (label != "None" && label != "Undefined" && label != "waiting...") {
         code.push(label);
-        txt = '';
-        code.forEach(getTxt);
+        // txt = '';
+        // code.forEach(getTxt);
 
 
         if (label == "Resource") {
@@ -190,9 +213,16 @@ function addCard() {
             behavior.push({info: info});
         }
 
-        console.log("txt: " + code);
-        console.log("behavior: " + behavior);
+        // console.log("txt: " + code);
+        // console.log("behavior: " + behavior);
     }
+}
+
+function takeSnap() {
+    snapshots.push(get((w/2)-70, (h-120)/2-100, 190, 190));
+    // snapshots.push(capture.get()); // grabbing pixel from the image itself
+    console.log('snapped');
+    // console.log(snapshots[0]);
 }
 
 function runProgram() {

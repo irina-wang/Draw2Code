@@ -55,6 +55,7 @@ function setup(){
     Resource = loadImage('assets/cards/Resource.png');
     Trigger_Run = loadImage('assets/cards/Trigger_Play.png');
     Trigger_Scissors = loadImage('assets/cards/Trigger_Scissors.png');
+    Behavior = loadImage('assets/cards/Action.png')
     // duck = loadImage('assets/images/duck.png'); 
 
     // create canvas
@@ -141,13 +142,6 @@ function setup(){
 
     
     // target = loadImage('assets/cards/Resource.png');
-}
-
-function takeSnap() {
-    snapshots.push(get(w/3, 50, 250, 250));
-    // snapshots.push(capture.get()); // grabbing pixel from the image itself
-    console.log('snapped');
-    // console.log(snapshots[0]);
 }
 
 function stop() {
