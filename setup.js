@@ -16,12 +16,13 @@ let capture;
 let w = window.innerWidth;
     h = window.innerHeight;
 
-const playBtn = document.getElementById('play');
+// const playBtn = document.getElementById('play');
 
 // display the label
 let label = 'waiting...';
 let button;
-let run = false;
+
+let play = false;
 let scan = true;
 
 // display the code scanned
@@ -54,28 +55,57 @@ function setup(){
     target = loadImage('assets/cards/Resource.png');
     trigger_play = loadImage('assets/cards/Trigger_Play.png');
     trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
-    duck = loadImage('assets/images/duck.png'); 
+    // duck = loadImage('assets/images/duck.png'); 
 
     // create canvas
     pixelDensity(1); // this makes the internal p5 canvas smaller
-    capture = createCapture({
-        audio: false,
-        video: {
-            width: 350,
-            height: 350
-        }
-    }, function() {
-        console.log('capture ready.')
-    });
-    capture.elt.setAttribute('playsinline', '');
-    createCanvas(w, h);
-    capture.size(350, 350);
-    capture.parent('container');
-    cnv = createCanvas(w, h);
-    cnv.parent('container');
-    capture.position(w/2, h/2);
-    capture.style('opacity',0)// use this to hide the capture later on (change to 0 to hide)...
-    // capture.hide(); // tracking.js can't track the video when it's hidden
+    if (scan) {
+        capture = createCapture({
+            audio: false,
+            video: {
+                width: 350,
+                height: 350
+            }
+        }, function() {
+            console.log('capture ready.')
+        });
+        
+        capture.elt.setAttribute('playsinline', '');
+        createCanvas(w, h);
+        capture.size(350, 350);
+        capture.parent('container');
+        cnv = createCanvas(w, h);
+        cnv.parent('container');
+        capture.position(w/2, (h-120)/2);
+        capture.style('opacity',0); // use this to hide the capture later on (change to 0 to hide)...
+        // capture.hide(); // tracking.js can't track the video when it's hidden
+        // drawBottomBar();
+    }
+
+        
+    // } else if (play) {
+    //     capture = createCapture({
+    //         audio: false,
+    //         video: {
+    //             width: w,
+    //             height: h
+    //         }
+    //     }, function() {
+    //         console.log('capture ready.')
+    //     });
+        
+    //     capture.elt.setAttribute('playsinline', '');
+    //     createCanvas(w, h);
+    //     capture.size(w, h);
+    //     capture.parent('container');
+    //     cnv = createCanvas(w, h);
+    //     cnv.parent('container');
+    //     capture.position(w, h);
+    //     capture.style('opacity',0)// use this to hide the capture later on (change to 0 to hide)...
+    //     // capture.hide(); // tracking.js can't track the video when it's hidden 
+
+        
+    // }
 
     // detect the grid card and the drawn
     detectGrid();
@@ -88,55 +118,38 @@ function setup(){
     // button = createButton('snap');
     // button.mousePressed(takesnap);
 
-    buttonSnap = createButton('Snap');
+    buttonSnap = createButton('Add');
     buttonSnap.position(10, 65);
-    buttonSnap.mousePressed(takesnap);
+    buttonSnap.mousePressed(addCard);
     
-    buttonSnap = createButton('Snap');
-    buttonSnap.position(10, 65);
-    buttonSnap.mousePressed(takesnap);
-
-    buttonRun = createButton('Run');
-    buttonRun.position(10, 105);
-    buttonRun.mousePressed(drawImage);
+    buttonPlay = createButton('Play');
+    buttonPlay.position(10, 105);
+    buttonPlay.mousePressed(drawImage);
 
     buttonStop = createButton('Stop');
     buttonStop.position(10, 145);
     buttonStop.mousePressed(stop);
 
-    duck = loadImage('assets/images/duck.png');
+    // duck = loadImage('assets/images/duck.png');
+
+    
     // target = loadImage('assets/cards/Resource.png');
 }
 
-function takesnap() {
+function takeSnap() {
     snapshots.push(get(w/3, 50, 250, 250));
     // snapshots.push(capture.get()); // grabbing pixel from the image itself
-    console.log("snapped");
-    console.log(snapshots[0]);
+    console.log('snapped');
+    // console.log(snapshots[0]);
 }
 
 function stop() {
-    run = false;
+    play = false;
 }
 
 function createTarget() {
     // create an object and save it to an array
     let t = new Target(imageX, imageY, snapshots[snapshots.length-1]); // the last item in the takesnaps array
     targets.push(t);
-    console.log("saved" + targets);
+    console.log('saved' + targets);
 }
-
-// function Target(newX, newY, img) {	
-//     this.x = imageX;	
-//     this.y = imageY;	
-//     this.img = img;	
-
-//     this.display = function() {		
-//         image(this.img, this.x, this.y);	
-//     }	
-
-//     this.update = function() {		
-//         this.x = newX;		
-//         this.y = newY;	
-//     }
-// }

@@ -4,11 +4,10 @@ let index = 0;
 function draw() {
     if (scan) {
         // draw the video
-        imageMode(CENTER);
-        image(capture, w/2, h/3, 350, 350);
+        // imageMode(CENTER);
+        image(capture, w/2, (h-120)/2, 350, 350);
 
         drawGrid();
-        updateGridData();
         // drawImage(); // for drawing a duck
 
         // draw the label
@@ -19,19 +18,17 @@ function draw() {
         // image('Reurce.png', 0, 0, 50, 50);
         
 
-        // drawBar();
-        if (mouseIsPressed &&
-            mouseX > 0 && mouseX < width &&
-            mouseY > 0 && mouseY < height) {
-                addCard();
-        }
+        
         // code.forEach(drawCode);
-        select ('#code').elt.innerText = txt; 
+        // select ('#code').elt.innerText = txt; 
         drawCode();
-    }
+        drawBottomBar();
+    }    else if (play) {
+        scan = false;
+        // draw the video
+        // imageMode(CENTER);
+        image(capture, 0, 0, w, h);
 
-    
-    else if (run) {
         // translate(width / 2, height / 2);
         // rotate(angle);
         // strokeWeight(4);
@@ -39,7 +36,7 @@ function draw() {
         // line(0, 0, 100, 0);
         // angle += 0.1;
 
-        
+        if (behavior[0].info.x) {
         // for (let i = 0; i < snapshots.length; i++) {
             noStroke();
             let x = behavior[index].info.x;
@@ -51,6 +48,7 @@ function draw() {
             
             // console.log(i);
             console.log(run);
+        }
         // }
     }
     // take snap
@@ -81,7 +79,7 @@ function drawLabel() {
     noStroke();
     fill(0);
     textFont('Work Sans');
-    text(label, w/2, 50);
+    text(label, w/2, 30);
     
 
     
@@ -131,10 +129,10 @@ function drawLabel() {
 //     }
 // }
 
-function drawBar() {
+function drawBottomBar() {
     noStroke;
-    fill("#d3d3d3");
-    rect(0, h, width, 150);
+    fill("#fff");
+    rect(0, h-120, w, 120);
 }
 
 function getTxt(value, index) {
@@ -156,10 +154,12 @@ function addCard() {
         txt = '';
         code.forEach(getTxt);
 
+
         if (label == "Resource") {
             // draw boundary in the center middle
             // provide the capture button
             // when the capture button is pressed, save the image data within the boundary
+            takeSnap();
         }
 
         if (label == "Behavior") {
