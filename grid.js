@@ -118,32 +118,34 @@ function drawGrid() {
         gridHeight = Cy - Ay;
 
         // draw the grid
-        strokeWeight(4);
-        stroke(255, 255, 0);
-        noFill();
-        beginShape();
-            vertex(Ax, Ay);
-            vertex(Bx, By);
-            vertex(Cx, Cy);
-            vertex(Dx, Dy);            
-        endShape();
+        // strokeWeight(4);
+        // stroke(255, 255, 0);
+        // noFill();
+        // beginShape();
+        //     vertex(Ax, Ay);
+        //     vertex(Bx, By);
+        //     vertex(Cx, Cy);
+        //     vertex(Dx, Dy);            
+        // endShape();
     } 
 
     // get the drawn
     tracker.on('track', function (event) {
         cnv.clear();
         event.data.forEach(function (r) {
+            // stroke(0, 0, 255); // blue
+            // noFill;
             // rect(r.x, r.y, r.width, r.height);
-            drawnX = w/3 + r.x;
-            drawnY = 50 + r.y;
+            drawnX = r.x + w/3;
+            drawnY = r.y+120;
             drawnWidth = r.width;
             drawnHeight = r.height;
     
             // get the size and position to draw an image
-            imageX = ((drawnX-gridX)/gridWidth) * window.width;
-            imageY = ((drawnY-gridY)/gridHeight) * (window.height *2/3);
-            imageWidth = drawnWidth/gridWidth * window.width;
-            imageHeight = drawnHeight/gridHeight * window.height;
+            imageX = ((drawnX-gridX)/gridWidth) * w;
+            imageY = ((drawnY-gridY)/gridHeight) * (h-120);
+            imageWidth = drawnWidth/gridWidth * w;
+            imageHeight = drawnHeight/gridHeight * (h-120);
         })
     });
 
@@ -153,17 +155,17 @@ function drawGrid() {
     noFill();
     rect(drawnX, drawnY, drawnWidth, drawnHeight);
 
-    stroke(0, 255, 0); // red
-    rect(imageX, imageY, imageWidth, imageWidth);
+    stroke(0, 255, 0); // yellow
+    rect(imageX, imageY, imageWidth, imageHeight);
 
     // change the color to track
     // if (mouseIsPressed &&
-    //     mouseX > 0 && mouseX < width &&
-    //     mouseY > 0 && mouseY < height) {
+    //     mouseX > w/2-175 && mouseX < w/2+175 &&
+    //     mouseY > (h-120)/2-175 && mouseY < (h-120)/2+175) {
     //     capture.loadPixels();
     //     target = capture.get(mouseX, mouseY);
     //     setTarget(target[0], target[1], target[2]);
-    //     // console.log(target[0] + ", " + target[1] + ", " + target[2]);
+    //     console.log("change the color to track");
     // }
 }
 

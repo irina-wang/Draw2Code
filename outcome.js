@@ -1,5 +1,6 @@
 let frame = 0;
 let index = 0;
+let spirit;
 
 function draw() {
     if (scan) {
@@ -24,8 +25,10 @@ function draw() {
     else if (play) {
         // draw the video in full screen size
         imageMode(CORNER);
+
         image(capture, 0, 0, w, h);
 
+        frameRate(12);
         let x, y, height, width;
         if (behavior.length > index) {
             noStroke();
@@ -65,6 +68,9 @@ function switchMode() {
     play = true;
     scan = false;
     modelURL = 'https://teachablemachine.withgoogle.com/models/VOgRsStGF/'; // rock scissors paper
+
+    // create an animation
+    // sprit = loadAnimation
 }
 
 function drawLabel() {
@@ -89,10 +95,10 @@ function drawLabel() {
         cardH = 250;
     } else if (label == "Trigger_Scissors") {
         card = Trigger_Scissors;
-    } else if (label == "Behavior") {
+    } else if (label == "Behavior" && detected == 2) {
         card = Behavior;
-        cardW = 400;
-        cardH = 250;
+        cardW = 360;
+        cardH = 200;
     }
 
     // Draw the card
