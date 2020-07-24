@@ -28,7 +28,7 @@ function draw() {
 
         image(capture, 0, 0, w, h);
 
-        frameRate(12);
+        frameRate(6);
         let x, y, height, width;
         if (behavior.length > index) {
             noStroke();
@@ -95,6 +95,8 @@ function drawLabel() {
         cardH = 250;
     } else if (label == "Trigger_Scissors") {
         card = Trigger_Scissors;
+        cardW = 300;
+        cardH = 250;
     } else if (label == "Behavior" && detected == 2) {
         card = Behavior;
         cardW = 360;

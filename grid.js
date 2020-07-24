@@ -155,8 +155,8 @@ function drawGrid() {
     noFill();
     rect(drawnX, drawnY, drawnWidth, drawnHeight);
 
-    stroke(0, 255, 0); // yellow
-    rect(imageX, imageY, imageWidth, imageHeight);
+    // stroke(0, 255, 0); // yellow
+    // rect(imageX, imageY, imageWidth, imageHeight);
 
     // change the color to track
     // if (mouseIsPressed &&
