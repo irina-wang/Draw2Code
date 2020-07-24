@@ -36,8 +36,10 @@ Link to the program: [Draw2Code](http://hyejinim.github.io/draw2code)
       - Step 4 - You can't interact with the program, and please bear with the laggy animation T_T
 
 - Program a simple animation - 30 mins
-
-  - What can you make with the cards? **Please take down your ideas(as many as possible) and submit in the survey**
+  - Task 1: Program an animal that appears on the right side of the screen and move to the middle when you run the program
+  - Task 2: Program that the duck gets twice bigger when you show the scissors hand gesture
+  - Task 3: Let's create your own project! What can you make with the cards?
+  - **Please take down your ideas(as many as possible) and submit in the survey**
   - If you don't have *any* ideas, click [here](https://docs.google.com/document/d/1bHBShg13TFhTErruXkIbynvSGfJyzOdNG26JPrGvIqY/edit?usp=sharing) for some inspirations(not recommended)
 
 - Fill out the [survey](https://forms.gle/j8tQrkCdT2FUnBbo6) - 10 mins
