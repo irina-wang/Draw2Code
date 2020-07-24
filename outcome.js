@@ -211,8 +211,10 @@ function showButtons() {
     if (scan) {
         document.getElementById("playBtn").style.display = "block";
         document.getElementById("addBtn").style.display = "block";
+        document.getElementById("tutorialBtn").style.display = "block";
     } else if (play) {
         document.getElementById("playBtn").style.display = "none";
         document.getElementById("addBtn").style.display = "none";
+        document.getElementById("tutorialBtn").style.display = "none";
     }
 }
