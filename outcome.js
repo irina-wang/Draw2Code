@@ -1,4 +1,4 @@
-let angle = 0;
+let frame = 0;
 let index = 0;
 
 function draw() {
@@ -14,58 +14,44 @@ function draw() {
         image(capture, w/2, (h-120)/2, 350, 350);
 
         drawGrid();
-        // drawImage(); // for drawing a duck
 
         // draw the label
         drawLabel();
         
-        
-        
-        // image('Reurce.png', 0, 0, 50, 50);
-        
-
-        
-        // code.forEach(drawCode);
-        // select ('#code').elt.innerText = txt; 
-        
         drawBottomBar();
         drawCode();
-    }   else if (play) {
-        scan = false;
-        // capture = createCapture({
-        //     audio: false,
-        //     video: {
-        //         width: w,
-        //         height: h
-        //     }
-        // });
-
-        // draw the video
+    }   
+    else if (play) {
+        // draw the video in full screen size
         imageMode(CORNER);
-        // show image in full screen size
         image(capture, 0, 0, w, h);
 
-        // translate(width / 2, height / 2);
-        // rotate(angle);
-        // strokeWeight(4);
-        // stroke(255);
-        // line(0, 0, 100, 0);
-        // angle += 0.1;
-
-        for (let i = 0; i < snapshots.length; i++) {
-            for (let j = 0; j < behavior.length; j++) {
-                if (behavior[j].info.x) {
-                noStroke();
-                let x = behavior[j].info.x;
-                let y = behavior[j].info.y;
-                let height = behavior[j].info.height;
-                let width = behavior[j].info.width;
-                image(snapshots[i], x, y, width, height); // make them repeat 
-                // j = (index + 1) % snapshots.length; 
-                
-                }
-            }
+        let x, y, height, width;
+        if (behavior.length > index) {
+            noStroke();
+            x = behavior[index].info.x;
+            y = behavior[index].info.y;
+            height = behavior[index].info.height;
+            width = behavior[index].info.width;
         }
+
+        image(snapshots[0], x, y, width, height);
+        index += 1;
+
+        // for (let i = 0; i < snapshots.length; i++) {
+        //     for (let j = 0; j < behavior.length; j++) {
+        //         if (behavior[j].info.x) {
+        //         noStroke();
+        //         let x = behavior[j].info.x;
+        //         let y = behavior[j].info.y;
+        //         let height = behavior[j].info.height;
+        //         let width = behavior[j].info.width;
+        //         image(snapshots[i], x, y, width, height); // make them repeat 
+        //         // j = (index + 1) % snapshots.length; 
+                
+        //         }
+        //     }
+        // }
     }
     // take snap
     // if(document.getElementById('snap').clicked == true) {
@@ -75,20 +61,10 @@ function draw() {
     
 }
   
-function drawImage() {
+function switchMode() {
     play = true;
     scan = false;
-    // show image on the video + need to fix the jiggling/bouncing issue
-    // noStroke();
-    // if (detected == 2) {
-    //   image(resource, x, y, width, height);
-    // } 
-
-    // for (let i = 0; i < snapshots.length; i++) {
-    //     noStroke();
-    //     image(snapshots[i], 0, 0, 60, 60); 
-    //     console.log('drawing');
-    // }
+    modelURL = 'https://teachablemachine.withgoogle.com/models/VOgRsStGF/'; // rock scissors paper
 }
 
 function drawLabel() {
@@ -190,11 +166,6 @@ function addCard() {
 
 function takeSnap() {
     snapshots.push(get((w/2)-70, (h-120)/2-100, 190, 190)); // grabbing pixel from the image itself
-}
-
-function runProgram() {
-    run = true;
-    drawImage();
 }
 
 function drawAnimation() {

@@ -36,26 +36,14 @@ let Trigger_Run;
 let Trigger_Scissors;
 let duck;
 
-function preload() {
-    // preload() runs once
-    
-    console.log('called'); // preload() is not working for some reason 
-
-    // load card images
-    // target = loadImage('assets/cards/Resource.png');
-    // trigger_play = loadImage('assets/cards/Trigger_Play.png');
-    // trigger_scissors = loadImage('assets/cards/Trigger_Scissors.png');
-    // duck = loadImage('assets/images/duck.png'); // Load the image
-}
-
 function setup(){
     // setup() waits until preload() is done
 
     // Load the image
-    Resource = loadImage('assets/cards/Resource.png');
-    Trigger_Run = loadImage('assets/cards/Trigger_Play.png');
-    Trigger_Scissors = loadImage('assets/cards/Trigger_Scissors.png');
-    Behavior = loadImage('assets/cards/Action.png')
+    // Resource = loadImage('assets/cards/Resource.png');
+    // Trigger_Run = loadImage('assets/cards/Trigger_Play.png');
+    // Trigger_Scissors = loadImage('assets/cards/Trigger_Scissors.png');
+    // Behavior = loadImage('assets/cards/Action.png')
     // duck = loadImage('assets/images/duck.png'); 
 
     // create canvas
@@ -128,7 +116,7 @@ function setup(){
     buttonPlay = createButton('Play');
     buttonPlay.id('playBtn');
     buttonPlay.position(w-115, 10);
-    buttonPlay.mousePressed(drawImage);
+    buttonPlay.mousePressed(switchMode);
 
     buttonPlay = createButton('Tutorial');
     buttonPlay.id('tutorialBtn');
