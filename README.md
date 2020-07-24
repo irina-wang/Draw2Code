@@ -2,7 +2,7 @@
 
   Draw2Code is an interactive programming platform that emphasizes computational thinking and artistic designing process. Children can import or create their own character and make their characters move with the change in scale and positions of graphic shapes. 
 
-Link to the program: [Draw2Code](http://hyejinim.github.io/draw2code)
+Link to the program: [Draw2Code](http://hyejinim.github.io/draw2code){:target="_blank" rel="noopener"}
 
 
 
