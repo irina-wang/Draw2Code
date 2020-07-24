@@ -31,7 +31,7 @@ Link to the program: [Draw2Code](http://hyejinim.github.io/draw2code)
   - You are welcomed and ask any questions you have in a breakout room with Irina
   - **Special Note **:
     - Right now it's only a prototype so certain features aren't working
-      - Step 2 -  You can't use the orange Trigger cards other than the ["play"](https://github.com/hyejinim/draw2code/blob/master/assets/cards/Trigger_Play.png) trigger card
+      - Step 2 -  You can't use the orange Trigger cards other than the ["play"](https://github.com/hyejinim/draw2code/blob/master/assets/cards/Trigger_Play.png) trigger card; Please only draw with blue pens on the Action cards.
       - Step 3 - You can't reorganize the cards or "throw" the cards that you don't need
       - Step 4 - You can't interact with the program, and please bear with the laggy animation T_T
 
