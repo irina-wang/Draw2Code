@@ -70,7 +70,8 @@ function setup(){
         }, function() {
             console.log('capture ready.')
         });
-        
+
+        // capture = capture.get(w/2, (h-120)/2, 350, 350);        
         capture.elt.setAttribute('playsinline', '');
         createCanvas(w, h);
         capture.size(350, 350);
