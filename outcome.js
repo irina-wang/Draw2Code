@@ -14,13 +14,12 @@ function draw() {
         // scale(-1, 1);
         image(capture, w/2, (h-120)/2, 350, 350);
 
-        drawGrid();
-
         // draw the label
-        drawLabel();
-        
+        drawCard();
         drawBottomBar();
         drawCode();
+
+        drawGrid();
     }   
     else if (play) {
         // draw the video in full screen size
@@ -73,14 +72,16 @@ function switchMode() {
     // sprit = loadAnimation
 }
 
-function drawLabel() {
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    noStroke();
-    fill(0);
-    textFont('Work Sans');
-    text(label, w/2, 30);
-    
+function drawCard() {
+    if (label == "waiting...") {
+        textSize(32);
+        textAlign(CENTER, CENTER);
+        noStroke();
+        fill(0);
+        textFont('Work Sans');
+        text(label, w/2, 30);
+    } 
+
     imageMode(CENTER);
     let card = "";
     let cardW = 0;
@@ -89,29 +90,40 @@ function drawLabel() {
         card = Resource;
         cardW = 340;
         cardH = 250;
+        cardName = "Sprite";
     } else if (label == "Trigger_Run") {
         card = Trigger_Run;
         cardW = 300;
         cardH = 250;
+        cardName = "Event";
     } else if (label == "Trigger_Scissors") {
         card = Trigger_Scissors;
         cardW = 300;
         cardH = 250;
+        cardName = "Event";
     } else if (label == "Behavior" && detected == 2) {
         card = Behavior;
         cardW = 360;
         cardH = 200;
+        cardName = "Action";
     }
 
     // Draw the card
     if (card) {
         image(card, w/2, (h-120)/2, cardW, cardH);
+        
+        // Draw the card name
+        textSize(32);
+        textAlign(CENTER, CENTER);
+        noStroke();
+        fill(0);
+        textFont('Work Sans');
+        text(cardName, w/2, 30);
     }
-    
 }
 
 function drawBottomBar() {
-    noStroke;
+    noStroke();
     fill("#fff");
     rect(0, h-120, w, 120);
 }

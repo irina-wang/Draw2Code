@@ -153,7 +153,10 @@ function drawGrid() {
     strokeWeight(4);
     stroke(255, 0, 0); // red
     noFill();
-    rect(drawnX, drawnY, drawnWidth, drawnHeight);
+
+    if (detected == 2) {
+        rect(drawnX, drawnY, drawnWidth, drawnHeight);
+    }
 
     // stroke(0, 255, 0); // yellow
     // rect(imageX, imageY, imageWidth, imageHeight);
