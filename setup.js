@@ -126,7 +126,11 @@ function setup(){
 
     buttonRES = createButton('Card');
     buttonRES.id('CardBtn');
-    buttonRES.position(500, 200);
+    buttonRES.position(10, 70);
+
+    buttonRES = createButton('Sparks');
+    buttonRES.id('SparkBtn');
+    buttonRES.position(10, 130);
     // buttonPlay.mousePressed(DownloadCard);
 
     // buttonStop = createButton('Stop');
