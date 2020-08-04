@@ -124,9 +124,9 @@ function setup(){
     buttonPlay.position(10, 10);
     buttonPlay.mousePressed(openTutorial);
 
-    buttonPlay = createButton('Card');
-    buttonPlay.id('CardBtn');
-    buttonPlay.position(50, 20);
+    buttonRES = createButton('Card');
+    buttonRES.id('CardBtn');
+    buttonRES.position(500, 200);
     // buttonPlay.mousePressed(DownloadCard);
 
     // buttonStop = createButton('Stop');
