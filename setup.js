@@ -126,7 +126,7 @@ function setup(){
 
     buttonPlay = createButton('Card');
     buttonPlay.id('CardBtn');
-    buttonPlay.position(20, 20);
+    buttonPlay.position(50, 20);
     // buttonPlay.mousePressed(DownloadCard);
 
     // buttonStop = createButton('Stop');
