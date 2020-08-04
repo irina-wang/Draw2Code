@@ -108,13 +108,14 @@ function setup(){
     // button = createButton('snap');
     // button.mousePressed(takesnap);
 
-    buttonAdd = createButton('Add');
-    buttonAdd.id('addBtn');
+    buttonAdd = createButton('Confirm');
+    buttonAdd.id('addBtn'); // haven't changed the id name to confirmBtn
     buttonAdd.position(w-115, (h-120)/2-55);
     buttonAdd.mousePressed(addCard);
     
-    buttonPlay = createButton('Play');
-    buttonPlay.id('playBtn');
+    
+    buttonPlay = createButton('Run');
+    buttonPlay.id('playBtn'); // haven't changed the id name to runBtn
     buttonPlay.position(w-115, 10);
     buttonPlay.mousePressed(switchMode);
 
@@ -122,6 +123,11 @@ function setup(){
     buttonPlay.id('tutorialBtn');
     buttonPlay.position(10, 10);
     buttonPlay.mousePressed(openTutorial);
+
+    buttonPlay = createButton('Card');
+    buttonPlay.id('CardBtn');
+    buttonPlay.position(20, 20);
+    // buttonPlay.mousePressed(DownloadCard);
 
     // buttonStop = createButton('Stop');
     // buttonStop.position(10, 145);
