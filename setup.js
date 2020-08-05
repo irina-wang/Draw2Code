@@ -125,7 +125,10 @@ function setup(){
     buttonPlay.position(10, 10);
     buttonPlay.mousePressed(openTutorial);
 
-    buttonRES = createButton('Card');
+
+    var button_content;
+    button_content.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Card", _blank)
+    buttonRES = createButton(button_content);
     buttonRES.id('CardBtn');
     // buttonRES.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', html, _blank)
     buttonRES.position(10, 70);
