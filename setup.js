@@ -127,7 +127,7 @@ function setup(){
 
     buttonRES = createButton('Card');
     buttonRES.id('CardBtn');
-    buttonRES.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', html, _blank)
+    // buttonRES.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', html, _blank)
     buttonRES.position(10, 70);
 
     buttonRES = createButton('Sparks');
