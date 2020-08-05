@@ -126,19 +126,20 @@ function setup(){
     buttonPlay.mousePressed(openTutorial);
 
 
-    var button_content;
-    button_content = createA('http://p5js.org/', 'this is a link');
+    var CardBtn;
+    CardBtn = createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Card", _blank);
     // .createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Card", _blank)
     // buttonRES = createButton(button_content);
     // buttonRES.id('CardBtn');
     // buttonPlay.mousePressed;
     // buttonRES.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', html, _blank)
-    button_content.position(10, 70);
+    CardBtn.position(30, 100);
 
-    buttonRES = createButton('Sparks');
-    buttonRES.id('SparkBtn');
-    buttonRES.position(10, 130);
-    buttonPlay.mousePressed(DownloadCard);
+    var SparkBtn;
+    SparkBtn = createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Sparks", _blank);
+    // buttonRES = createButton('Sparks');
+    // buttonRES.id('SparkBtn');
+    SparkBtn.position(30, 150);
 
     // buttonStop = createButton('Stop');
     // buttonStop.position(10, 145);
