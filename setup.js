@@ -129,10 +129,11 @@ function setup(){
     var button_content;
     button_content = createA('http://p5js.org/', 'this is a link');
     // .createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Card", _blank)
-    buttonRES = createButton(button_content);
-    buttonRES.id('CardBtn');
+    // buttonRES = createButton(button_content);
+    // buttonRES.id('CardBtn');
+    // buttonPlay.mousePressed;
     // buttonRES.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', html, _blank)
-    buttonRES.position(10, 70);
+    button_content.position(10, 70);
 
     buttonRES = createButton('Sparks');
     buttonRES.id('SparkBtn');
