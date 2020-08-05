@@ -11,7 +11,8 @@
 //     // you're in LANDSCAPE mode
 // }
 
-// the video
+// the video 
+// ** ISSUE: if user resize the screen, the size of components won't change
 let capture;
 let w = window.innerWidth;
     h = window.innerHeight;
@@ -126,6 +127,7 @@ function setup(){
 
     buttonRES = createButton('Card');
     buttonRES.id('CardBtn');
+    buttonRES.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', html, _blank)
     buttonRES.position(10, 70);
 
     buttonRES = createButton('Sparks');
