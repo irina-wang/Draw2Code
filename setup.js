@@ -125,21 +125,16 @@ function setup(){
     buttonPlay.position(10, 10);
     buttonPlay.mousePressed(openTutorial);
 
+    // working versions
+    buttonRES = createButton('Card');
+    buttonRES.id('CardBtn');	    
+    buttonRES.position(10, 70);
+    buttonRES.mousePressed(linkCards);
 
-    var CardBtn;
-    CardBtn = createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Card", _blank);
-    // .createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Card", _blank)
-    // buttonRES = createButton(button_content);
-    // buttonRES.id('CardBtn');
-    // buttonPlay.mousePressed;
-    // buttonRES.createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', html, _blank)
-    CardBtn.position(30, 100);
-
-    var SparkBtn;
-    SparkBtn = createA('https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf', "Sparks", _blank);
-    // buttonRES = createButton('Sparks');
-    // buttonRES.id('SparkBtn');
-    SparkBtn.position(30, 150);
+    buttonRES = createButton('Sparks');
+    buttonRES.id('SparkBtn');
+    buttonRES.position(10, 130);
+    buttonRES.mousePressed(linkSparks);
 
     // buttonStop = createButton('Stop');
     // buttonStop.position(10, 145);
