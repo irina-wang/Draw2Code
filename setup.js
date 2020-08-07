@@ -11,6 +11,7 @@
 //     // you're in LANDSCAPE mode
 // }
 
+
 // the video 
 // ** ISSUE: if user resize the screen, the size of components won't change
 let capture;
