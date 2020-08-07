@@ -43,7 +43,8 @@ Masters Thesis, July 2020 -->
   <script src="cards.js"></script>
   <script src="outcome.js"></script>
   
-  
+ 
+</script>
 </head>
 <body>
 
@@ -86,91 +87,87 @@ Masters Thesis, July 2020 -->
 <!-- The Modal -->
 <div id="myModal" class="modal">
   <!-- Modal content -->
+  
   <div class="modal-content">
     <span class="close">&times;</span>
+    
     <div class="container">
-      <h2>Visual Tutorial</h2>  
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <!-- five steps -->
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-          <li data-target="#myCarousel" data-slide-to="4"></li>
-        </ol>
-    
+      <h2>Tutorial</h2>  
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="1000000" data-wrap="false">
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" style="height: 600px;">
+        <div class="carousel-inner">
+          <!-- step 1-->
           <div class="item active">
-            <div class="gif_container" >
-              <img src="assets/gifs/Draw2Code_intro.gif" alt="intro" width="100%">
-            </div>
-            <div class="instruction_container">
-              <br>
-              Step 0<br>
-              <div class="instruction">Draw2Code is a simple coding platform  for kids that emphasizes the physical experience. Print and cut out the <a href="assets/cards/draw2code_coding_cards.pdf" target="_blank" style="font-size: 30px;">cards</a> and get started.</div>         
-            </div>
+            <div class="instruction">Welcome to Draw2code, an interactive programming platform that emphasizes computational thinking and artistic designing process! </div>         
           </div>
-    
+          <!-- step 2 -->
           <div class="item">
-            <div class="gif_container" >
-              <img src="assets/gifs/Draw2Code_step1_thinking.gif" alt="intro" width="100%">
-            </div>
-            <div class="instruction_container">
-              <br>
-              Step 1<br>
-              <div class="instruction">Come up with an idea</div>
-            </div>
+            <div class="modal-canvas"></div>
+            <div class="instruction">First, download the Cards to get started. You need to  print and cut them out to obtain better experience</div>
           </div>
-        
+          <!-- step 3 -->
           <div class="item">
-            <div class="gif_container" >
-              <img src="assets/gifs/Draw2Code_step2_make.gif" alt="intro" width="100%">
-            </div>
-            <div class="instruction_container">
-              <br>
-              Step 2<br>
-              <div class="instruction"> <b>Play around with the paper blocks</b> <br> - Doodle a character <br> - pick a trigger <br> - program the moves
-              </div>
-            </div>
+            <div class="instruction"> While you are cutting, let me introduce the cards. There are three types of cards -- Sprite, Event, and Action. </div>
           </div>
-  
+          <!-- step 4 -->
           <div class="item">
-            <div class="gif_container" >
-              <img src="assets/gifs/Draw2Code_step3_scan.gif" alt="intro" width="100%">
-            </div>
-            <div class="instruction_container">
-              <br>
-              Step 3 <br>
-              <div class="instruction"> <b> Scan, organize, and check </b> <br> - toss away the wrong blocks <br> - check the sequence </div>
-            </div>
+            <div class="instruction"> The Green card is called the <b>Sprite Cards</b>. Anything you draw on the Sprite card will be displayed on screen</div>
           </div>
-  
+          <!-- step 5 -->
+          <div class="item step5">
+            <div class="instruction">Now that you have your sprite, how do you make it move? All we need is the black Action Card. Think of that as a frame, and you can draw a series individual motions that animate your sprite. </div>
+            <!-- <script>step5();</script> -->
+          </div>
+          <!-- step 6 -->
           <div class="item">
-            <div class="gif_container" >
-              <img src="assets/gifs/Draw2Code_step4_interact.gif" alt="intro" width="100%">
-            </div>
-            <div class="instruction_container">
-              <br>
-              Step 4<br>
-              <div class="instruction">Click <b>"Run"</b> and <b>interact</b> with your program</div>
-            </div>
+            <div class="instruction">With the action card, you can program how big your sprite will be, where it will appear, and the path it will move along on the screen!</div>
+          </div>
+          <!-- step 7 -->
+          <div class="item">
+            <div class="instruction">The idea is “What you draw is what you see”! Think about which pixels do you need to color if you want the character to appear in the middle of the screen.</div>
+          </div>
+          <!-- step 8 -->
+          <div class="item">
+            <div class="instruction">What if you want the sprite to appear twice as big?</div>
+          </div>
+          <!-- step 9 -->
+          <div class="item">
+            <div class="instruction">Or if you want your character to have a twin?</div>
+          </div>
+          <!-- step 10 -->
+          <div class="item">
+            <div class="instruction">So now we have our character and its motion programmed. Let’s use the Event 
+              Card to prompt the Sprite when to move! </div>
+          </div>
+          <!-- step 11 -->
+          <div class="item">
+            <div class="instruction">The cool thing about the Event Card is that it allows you to interact with the 
+              propram. Say I selected the V-sign Event, what should I do in order to make my Sprite move?  </div>
+          </div>
+          <!-- step 12 -->
+          <div class="item">
+            <div class="instruction">Ok, enough about the cards! But feel free to reference to Card button for more details. For inspirations, click sparks to see what other people use Draw2code to create! </div>
+          </div>
+          <!-- step 12 -->
+          <div class="item">
+            <div class="instruction">Start to play around with your cards now.  When you done programming, don’t forget to test out your program by clicking scan, confirm and run!  </div>
           </div>
         </div>
     
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
+        
+
       </div>
+      <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
     </div>
+    
   </div>
 </div> 
 

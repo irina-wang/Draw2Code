@@ -1,67 +1,75 @@
 .modal {
+    font-size: 50pt;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 2%; /* Location of the box */
     left: 0;
-    top: 0;
+    bottom: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    /* overflow: auto; Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
+   /* Modal Canvas */
+   /* .modal-canvas{
+    width: 200px;
+    height: 900px;
+    /* object-position: 5px 10%;
+    border: 5px solid red; 
+  } */
+
   /* Modal Content */
   .modal-content {
     background-color: #fefefe;
-    margin: 5%;
-    border: 1px solid #888;
-    width: 90%;
-  
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height: 150px;
   }
-  
+
+
   /* The Close Button */
   .close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+  } 
   
   .close:hover,
   .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+  } 
 
   .carousel-inner{
-    height: 600px;
     width:100%;
-    margin-bottom: 5%;
+    height:150px;
+    position: absolute;
+    /* margin-bottom: 5%; */
   }
+  
   .item{
+    /* background-color: brown; */
     text-align: center;
     vertical-align: middle;
   }
 
-  .gif_container{
-    display: inline-block;
-    width: 50%;
-    margin-right: 5%
-  }
-  .instruction_container{
-    width:40%;
-    display: inline-block;
-    font-family:'Courier New', Courier, monospace;
-    font-size: 50px;
-    font-weight: bold;
-    /* margin-left: 7%; */
-  }
-
   .instruction{
+    /* height: 150px; */
     color: gray;
     text-align: left;
-    font-size: 30px;
+    font-size: 18px;
+    margin: 0%;
+  }
+
+  .carousel-control{
+    width: 5%;
+    bottom:50px;
+    top: auto;
   }

@@ -123,6 +123,7 @@ function setup(){
     buttonPlay = createButton('Tutorial');
     buttonPlay.id('tutorialBtn');
     buttonPlay.position(10, 10);
+    // buttonPlay.mousePressed(step5);
     buttonPlay.mousePressed(openTutorial);
 
     // working versions
@@ -149,6 +150,8 @@ function setup(){
 function stop() {
     play = false;
 }
+
+
 
 // function createTarget() {
 //     // create an object and save it to an array

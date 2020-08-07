@@ -225,3 +225,4 @@ function linkCards(){
 function linkSparks(){
     window.open('https://docs.google.com/document/d/1bHBShg13TFhTErruXkIbynvSGfJyzOdNG26JPrGvIqY/edit?usp=sharing', '_blank');
 }
+
