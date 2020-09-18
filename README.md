@@ -2,7 +2,7 @@
 
 ​		Draw2Code is an interactive programming platform that emphasizes computational thinking and artistic designing process. Children can import or create their own character and make their characters move with the change in scale and positions of graphic shapes. 
 
-Link to the program: [Draw2Code](http://hyejinim.github.io/draw2code)
+Link to the program: [Draw2Code](https://irina-wang.github.io/Draw2Code/)
 
 
 
@@ -12,7 +12,7 @@ Link to the program: [Draw2Code](http://hyejinim.github.io/draw2code)
   - [Download](https://github.com/hyejinim/draw2code/blob/master/assets/cards/draw2code_coding_cards.pdf), print and cut out the cards(suggested)
     - if you don't have a printer, Go to the [Miro Board](https://miro.com/app/board/o9J_ko0adOg=/)
 - Where can I access the program?
-  - Link to the program: [Draw2Code](http://hyejinim.github.io/draw2code)
+  - Link to the program: [Draw2Code](https://irina-wang.github.io/Draw2Code/)
 
 
 
