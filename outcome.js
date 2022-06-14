@@ -101,7 +101,8 @@ function draw() {
     }
 
     imageMode(CENTER);
-    image(capture, windowW / 2, (windowH - codeBarHeight) / 2, windowW, windowH); // draw the video in full screen size
+    // draw the video in full screen size
+    image(capture, windowW / 2, (windowH - codeBarHeight) / 2, windowW, windowH); 
     
     imageMode(CORNER);
     showAnimation();
@@ -248,12 +249,6 @@ function scanCard() {
       } else if (currentEvent == "Scissors") {
         sprites[spritesNum].eventScissors.frames.push(frame);
       } 
-      // else if (currentEvent == "Rock") {
-      //   sprites[spritesNum].eventRock.frames.push(frame);
-      // } else if (currentEvent == "Paper") {
-      //   sprites[spritesNum].eventPaper.frames.push(frame);
-      // }
-  
     } else {
       drawing = '';
     }
@@ -294,15 +289,6 @@ function drawCode() {
       itemW = 75;
       itemGap = itemW + 15;
     } 
-    // else if (item == "Trigger_Rock") {
-    //   item = Event_Rock;
-    //   itemW = 75;
-    //   itemGap = itemW + 15;
-    // } else if (item == "Trigger_Paper") {
-    //   item = Event_Paper;
-    //   itemW = 75;
-    //   itemGap = itemW + 15;
-    // } 
     else if (item == "Behavior") {
       item = Action;
       itemW = 120;
@@ -321,14 +307,8 @@ function drawCode() {
 
 function showAnimation() {
   push(); 
-  // if (mobile) {
-  //   translate(width, 0); // flip the video for desktop
-  //   scale(-1, 1);
-  // }
   if (playFlag) {
     console.log("play animation");
-    // thisEvent = sprites[spritesNum].events[eventsNum]"Trigger_Run"
-
     if (sprites[spritesNum].eventPlay.frames) {
       if (frameNum < sprites[spritesNum].eventPlay.frames.length) {
         sprX = sprites[spritesNum].eventPlay.frames[frameNum].x;
@@ -374,78 +354,6 @@ function showAnimation() {
       frameNum = 0;
     }
   }
-
-  // if (rockFlag) {
-  //   console.log("rock animation");
-  //   if (frameNum < sprites[spritesNum].eventRock.frames.length) {
-  //     sprX = sprites[spritesNum].eventRock.frames[frameNum].x;
-  //     sprY = sprites[spritesNum].eventRock.frames[frameNum].y;
-  //     sprW = sprites[spritesNum].eventRock.frames[frameNum].w;
-  //     sprH = sprites[spritesNum].eventRock.frames[frameNum].w;
-      
-  //     image(spr, sprX, sprY, sprW, sprH);
-  //     if (frameCount % 10 == 0) { // update every # frames
-  //       sprX = sprites[spritesNum].eventRock.frames[frameNum].x;
-  //       sprY = sprites[spritesNum].eventRock.frames[frameNum].y;
-  //       sprW = sprites[spritesNum].eventRock.frames[frameNum].w;
-  //       sprH = sprites[spritesNum].eventRock.frames[frameNum].w;
-  //       frameNum = frameNum + 1;
-  //     }
-  //   } 
-  //   if (frameNum == sprites[spritesNum].eventRock.frames.length) {
-  //     rockFlag = !rockFlag;
-  //     rockCount = 0;
-  //     frameNum = 0;
-  //   }
-  // }
-
-  // if (paperFlag) {
-  //   console.log("paper animation");
-  //   if (frameNum < sprites[spritesNum].eventPaper.frames.length) {
-  //     sprX = sprites[spritesNum].eventPaper.frames[frameNum].x;
-  //     sprY = sprites[spritesNum].eventPaper.frames[frameNum].y;
-  //     sprW = sprites[spritesNum].eventPaper.frames[frameNum].w;
-  //     sprH = sprites[spritesNum].eventPaper.frames[frameNum].w;
-      
-  //     image(spr, sprX, sprY, sprW, sprH);
-  //     if (frameCount % 10 == 0) { // update every # frames
-  //       sprX = sprites[spritesNum].eventPaper.frames[frameNum].x;
-  //       sprY = sprites[spritesNum].eventPaper.frames[frameNum].y;
-  //       sprW = sprites[spritesNum].eventPaper.frames[frameNum].w;
-  //       sprH = sprites[spritesNum].eventPaper.frames[frameNum].w;
-  //       frameNum = frameNum + 1;
-  //     }
-  //   } 
-  //   if (frameNum == sprites[spritesNum].eventPaper.frames.length) {
-  //     paperFlag = !paperFlag;
-  //     paperCount = 0;
-  //     frameNum = 0;
-  //   }
-  // }
-
-  // if (label == "Rock") {
-  //   // text("Rock", windowW / 2, 30);
-  //   if (sprites[spritesNum].eventRock.length != 0) {
-  //     rockCount = rockCount + 1;
-  //     console.log('rockCount: ', rockCount);
-
-  //     if (rockCount == 6) {
-  //       rockFlag = !rockFlag;
-  //     }
-  //   }
-  // } else if (label == "Paper") {
-  //   // text("Paper", windowW / 2, 30);
-  //   if (sprites[spritesNum].eventPaper.length != 0) {
-  //     PaperCount = PaperCount + 1;
-  //     console.log('paperCount: ', paperCount);
-
-  //     if (scissorsCount == 6) {
-  //       scissorsFlag = !scissorsFlag;
-  //     }
-  //   }
-  // } else if (label == "None") {
-  //   // text("None", windowW / 2, 30);
-  // } 
 
   if (label == "Scissors") {
     // text("Scissors", windowW / 2, 30);
