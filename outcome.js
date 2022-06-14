@@ -20,7 +20,6 @@ let sprX, sprY, sprW, sprH;
 
 function draw() {
   background(238, 238, 238);
-  // background(0, 0, 0);
 
   if (scan) {
     if (!mobile || switchFlag) {  
@@ -67,7 +66,6 @@ function draw() {
 
         rect(bx, by, bw, bh);
   
-  
         // spirit's size and position
         stroke(0,0,0);
         imageMode(CORNER);
@@ -81,7 +79,6 @@ function draw() {
         sh = Math.round(sh);
   
         pop();
-  
         stroke(255, 255 ,255);
   
         noStroke();
@@ -120,7 +117,6 @@ function draw() {
   }
 }
 
-
 // draw the classification and image of coding block
 function drawCodingBlock() {
   let card = "";
@@ -153,19 +149,7 @@ function drawCodingBlock() {
     cardW = 300;
     cardH = 250;
     cardName = "Scissors";
-  } 
-  // else if (label == "Trigger_Rock") {
-  //   card = Event_Rock;
-  //   cardW = 300;
-  //   cardH = 250;
-  //   cardName = "Rock";
-  // } else if (label == "Trigger_Paper") {
-  //   card = Event_Paper;
-  //   cardW = 300;
-  //   cardH = 250;
-  //   cardName = "Paper";
-  // } 
-  else if (label == "Behavior") {
+  } else if (label == "Behavior") {
     card = Action;
     cardW = 340; 
     cardH = 250; 
@@ -197,8 +181,6 @@ function drawBottomBar() {
   rect(0, windowH - codeBarHeight, windowW, codeBarHeight + 100);
 }
 
-
-
 function scanCard() {
   let code;
   let drawing;
@@ -207,9 +189,7 @@ function scanCard() {
   let event;
 
   if (label != "None" && label != "Undefined" && label != "waiting...") {
-
     if (label == "Resource") {
-      
       // save the image within the boundary
       drawing = takeSnap(windowW / 2 - 68, (windowH - codeBarHeight) / 2 - 90, 180, 180);
 
@@ -219,16 +199,16 @@ function scanCard() {
         eventPlay: [],
         eventScissors: [],
       };
+
+      // add new sprite
       sprites.push(sprite);
       spritesNum = sprites.length - 1;
     } else if (label == "Trigger_Scissors") {
       currentEvent = "Scissors";
       event = {
-        // type: label,
         frames: [] 
       };
       sprites[spritesNum].eventScissors = event;
-      // eventsNum = sprites[spritesNum].events.length - 1;
     }
     else if (label == "Trigger_Run") {
       currentEvent = "Play";
@@ -236,11 +216,9 @@ function scanCard() {
         frames: [] 
       };
       sprites[spritesNum].eventPlay = event;
-      // eventsNum = sprites[spritesNum].events.length - 1;
     } else if (label == "Behavior") {
       drawing = takeSnap(windowW / 2 - 130, (windowH - codeBarHeight) / 2 - 70, 220, 130);
 
-      console.log('sprite: ', sx, sy, sw, sh);
       // create Frame objects
       frame = new Frame(sx, sy, sw, sh); // x, y, width, height
 
@@ -356,7 +334,6 @@ function showAnimation() {
   }
 
   if (label == "Scissors") {
-    // text("Scissors", windowW / 2, 30);
     if (sprites[spritesNum].eventScissors.length != 0) {
       scissorsCount = scissorsCount + 1;
       console.log('scissorsCount: ', scissorsCount);
