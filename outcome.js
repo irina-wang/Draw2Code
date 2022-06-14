@@ -215,13 +215,8 @@ function scanCard() {
       spr = drawing;
       sprite = {
         drawing: drawing,
-        // events: [],
         eventPlay: [],
         eventScissors: [],
-        // eventRock: [],
-        // eventPaper: []
-        // play: [],
-        // scissors: []
       };
       sprites.push(sprite);
       spritesNum = sprites.length - 1;
@@ -233,24 +228,7 @@ function scanCard() {
       };
       sprites[spritesNum].eventScissors = event;
       // eventsNum = sprites[spritesNum].events.length - 1;
-    } 
-    // else if (label == "Trigger_Rock") {
-    //   currentEvent = "Rock";
-    //   event = {
-    //     // type: label,
-    //     frames: [] 
-    //   };
-    //   sprites[spritesNum].eventRock = event;
-    //   // eventsNum = sprites[spritesNum].events.length - 1;
-    // } else if (label == "Trigger_Paper") {
-    //   currentEvent = "Paper";
-    //   event = {
-    //     // type: label,
-    //     frames: [] 
-    //   };
-    //   sprites[spritesNum].eventPaper = event;
-    //   // eventsNum = sprites[spritesNum].events.length - 1;
-    // } 
+    }
     else if (label == "Trigger_Run") {
       currentEvent = "Play";
       event = {
