@@ -231,9 +231,9 @@ function scanCard() {
     } else {
       drawing = '';
     }
+
     code = new Code(label, drawing);
     codes.push(code);
-    console.log(sprites);
   }
 }
 
