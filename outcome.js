@@ -191,7 +191,8 @@ function scanCard() {
   if (label != "None" && label != "Undefined" && label != "waiting...") {
     if (label == "Resource") {
       // save the image within the boundary
-      drawing = takeSnap(windowW / 2 - 68, (windowH - codeBarHeight) / 2 - 90, 180, 180);
+      // grab pixel from the image itself
+      drawing = get(windowW / 2 - 68, (windowH - codeBarHeight) / 2 - 90, 180, 180);
 
       spr = drawing;
       sprite = {
@@ -217,7 +218,7 @@ function scanCard() {
       };
       sprites[spritesNum].eventPlay = event;
     } else if (label == "Behavior") {
-      drawing = takeSnap(windowW / 2 - 130, (windowH - codeBarHeight) / 2 - 70, 220, 130);
+      drawing = get(windowW / 2 - 130, (windowH - codeBarHeight) / 2 - 70, 220, 130);
 
       // create Frame objects
       frame = new Frame(sx, sy, sw, sh); // x, y, width, height
@@ -234,10 +235,6 @@ function scanCard() {
     codes.push(code);
     console.log(sprites);
   }
-}
-
-function takeSnap(x, y, w, h) {
-  return get(x, y, w, h); // grab pixel from the image itself
 }
 
 function drawCode() {
